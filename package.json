@@ -230,9 +230,9 @@
     "description": "Ulepszony interfejs galerii zdjęć w serwisach AGORY. Wszystkie zdjęcia wyświetlają się na jednej stronie.",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "1.6.0",
+    "version": "2.0.0",
     "lib": "lib",
-    "fullName": "Eliminator Slajdow",
+    "fullName": "Eliminator Slajdów",
     "main": "main",
     "id": "jid0-GaZOxvWNYcafEsmayJDIG3XXVi8",
     "permissions": {
