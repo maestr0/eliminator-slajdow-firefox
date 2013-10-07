@@ -1,227 +1,240 @@
-{"license": "", "preferences": [
-    {
-        "title": "Pasek przewijania",
-        "type": "bool",
-        "name": "scrollableImageContainer",
-        "value": false,
-        "description": "Zawsze pokazuj slajdy z paskiem przewijania?"
-    },
-    {
-        "type": "bool",
-        "name": "autotrader.pl",
-        "value": true,
-        "title": "www.autotrader.pl"
-    },
-    {
-        "type": "bool",
-        "name": "alert24.pl",
-        "value": true,
-        "title": "www.alert24.pl"
-    },
-    {
-        "type": "bool",
-        "name": "avanti24.pl",
-        "value": true,
-        "title": "www.avanti24.pl"
-    },
-    {
-        "type": "bool",
-        "name": "bryla.pl",
-        "value": true,
-        "title": "www.bryla.pl"
-    },
-    {
-        "type": "bool",
-        "name": "ciacha.net",
-        "value": true,
-        "title": "www.ciacha.net"
-    },
-    {
-        "type": "bool",
-        "name": "czterykaty.pl",
-        "value": true,
-        "title": "www.czterykaty.pl"
-    },
-    {
-        "type": "bool",
-        "name": "deser.pl",
-        "value": true,
-        "title": "www.deser.pl"
-    },
-    {
-        "type": "bool",
-        "name": "domiwnetrze.pl",
-        "value": true,
-        "title": "www.domiwnetrze.pl"
-    },
-    {
-        "type": "bool",
-        "name": "domosfera.pl",
-        "value": true,
-        "title": "www.domosfera.pl"
-    },
-    {
-        "type": "bool",
-        "name": "edziecko.pl",
-        "value": true,
-        "title": "www.edziecko.pl"
-    },
-    {
-        "type": "bool",
-        "name": "e-ogrody.pl",
-        "value": true,
-        "title": "www.e-ogrody.pl"
-    },
-    {
-        "type": "bool",
-        "name": "gazeta.pl",
-        "value": true,
-        "title": "www.gazeta.pl"
-    },
-    {
-        "type": "bool",
-        "name": "gazetadom.pl",
-        "value": true,
-        "title": "www.gazetadom.pl"
-    },
-    {
-        "type": "bool",
-        "name": "gazetapraca.pl",
-        "value": true,
-        "title": "www.gazetapraca.pl"
-    },
-    {
-        "type": "bool",
-        "name": "groszki.pl",
-        "value": true,
-        "title": "www.groszki.pl"
-    },
-    {
-        "type": "bool",
-        "name": "kotek.pl",
-        "value": true,
-        "title": "www.kotek.pl"
-    },
-    {
-        "type": "bool",
-        "name": "ladnydom.pl",
-        "value": true,
-        "title": "www.ladnydom.pl"
-    },
-    {
-        "type": "bool",
-        "name": "logo24.pl",
-        "value": true,
-        "title": "www.logo24.pl"
-    },
-    {
-        "type": "bool",
-        "name": "lula.pl",
-        "value": true,
-        "title": "www.lula.pl"
-    },
-    {
-        "type": "bool",
-        "name": "magazyn-kuchnia.pl",
-        "value": true,
-        "title": "www.magazyn-kuchnia.pl"
-    },
-    {
-        "type": "bool",
-        "name": "metropraca.pl",
-        "value": true,
-        "title": "www.metropraca.pl"
-    },
-    {
-        "type": "bool",
-        "name": "moto.pl",
-        "value": true,
-        "title": "www.moto.pl"
-    },
-    {
-        "type": "bool",
-        "name": "namonciaku.pl",
-        "value": true,
-        "title": "www.namonciaku.pl"
-    },
-    {
-        "type": "bool",
-        "name": "plotek.pl",
-        "value": true,
-        "title": "www.plotek.pl"
-    },
-    {
-        "type": "bool",
-        "name": "polygamia.pl",
-        "value": true,
-        "title": "www.polygamia.pl"
-    },
-    {
-        "type": "bool",
-        "name": "popcorner.pl",
-        "value": true,
-        "title": "www.popcorner.pl"
-    },
-    {
-        "type": "bool",
-        "name": "pracawbiurze.pl",
-        "value": true,
-        "title": "www.pracawbiurze.pl"
-    },
-    {
-        "type": "bool",
-        "name": "sport.pl",
-        "value": true,
-        "title": "www.sport.pl"
-    },
-    {
-        "type": "bool",
-        "name": "swiatmotocykli.pl",
-        "value": true,
-        "title": "www.swiatmotocykli.pl"
-    },
-    {
-        "type": "bool",
-        "name": "tokfm.pl",
-        "value": true,
-        "title": "www.tokfm.pl"
-    },
-    {
-        "type": "bool",
-        "name": "tuba.pl",
-        "value": true,
-        "title": "www.tuba.pl"
-    },
-    {
-        "type": "bool",
-        "name": "ugotuj.to",
-        "value": true,
-        "title": "www.ugotuj.to"
-    },
-    {
-        "type": "bool",
-        "name": "wyborcza.biz",
-        "value": true,
-        "title": "www.wyborcza.biz"
-    },
-    {
-        "type": "bool",
-        "name": "wyborcza.pl",
-        "value": true,
-        "title": "www.wyborcza.pl"
-    },
-    {
-        "type": "bool",
-        "name": "wysokieobcasy.pl",
-        "value": true,
-        "title": "www.wysokieobcasy.pl"
-    },
-    {
-        "type": "bool",
-        "name": "zczuba.pl",
-        "value": true,
-        "title": "www.zczuba.pl"
-    }
-], "contributors": [], "author": "maestr0", "url": "", "description": "Ulepszony interfejs galerii zdj\u0119\u0107 w serwisach AGORY. Wszystkie zdj\u0119cia wy\u015bwietlaj\u0105 si\u0119 na jednej stronie. Nie trzeba ju\u017c prze\u0142adowywa\u0107 ca\u0142o\u015bci przechodz\u0105c do nast\u0119pnego slajdu. Dzia\u0142a to r\u00f3wnie\u017c w przypadku wi\u0119kszo\u015bci artyku\u0142\u00f3w z obrazkami.", "name": "eliminator-slajdow", "dependencies": ["api-utils", "addon-kit"], "version": "1.6.0", "lib": "lib", "fullName": "Eliminator Slajdow", "main": "main", "id": "jid0-GaZOxvWNYcafEsmayJDIG3XXVi8", "permissions": {
-    "private-browsing": true
-}}
+{"license": "",
+    "preferences": [
+        {
+            "title": "Pasek przewijania",
+            "type": "bool",
+            "name": "scrollableImageContainer",
+            "value": false,
+            "description": "Zawsze pokazuj slajdy z paskiem przewijania?"
+        },
+        {
+            "type": "bool",
+            "name": "autotrader.pl",
+            "value": true,
+            "title": "www.autotrader.pl"
+        },
+        {
+            "type": "bool",
+            "name": "alert24.pl",
+            "value": true,
+            "title": "www.alert24.pl"
+        },
+        {
+            "type": "bool",
+            "name": "avanti24.pl",
+            "value": true,
+            "title": "www.avanti24.pl"
+        },
+        {
+            "type": "bool",
+            "name": "bryla.pl",
+            "value": true,
+            "title": "www.bryla.pl"
+        },
+        {
+            "type": "bool",
+            "name": "ciacha.net",
+            "value": true,
+            "title": "www.ciacha.net"
+        },
+        {
+            "type": "bool",
+            "name": "czterykaty.pl",
+            "value": true,
+            "title": "www.czterykaty.pl"
+        },
+        {
+            "type": "bool",
+            "name": "deser.pl",
+            "value": true,
+            "title": "www.deser.pl"
+        },
+        {
+            "type": "bool",
+            "name": "domiwnetrze.pl",
+            "value": true,
+            "title": "www.domiwnetrze.pl"
+        },
+        {
+            "type": "bool",
+            "name": "domosfera.pl",
+            "value": true,
+            "title": "www.domosfera.pl"
+        },
+        {
+            "type": "bool",
+            "name": "edziecko.pl",
+            "value": true,
+            "title": "www.edziecko.pl"
+        },
+        {
+            "type": "bool",
+            "name": "e-ogrody.pl",
+            "value": true,
+            "title": "www.e-ogrody.pl"
+        },
+        {
+            "type": "bool",
+            "name": "gazeta.pl",
+            "value": true,
+            "title": "www.gazeta.pl"
+        },
+        {
+            "type": "bool",
+            "name": "gazetadom.pl",
+            "value": true,
+            "title": "www.gazetadom.pl"
+        },
+        {
+            "type": "bool",
+            "name": "gazetapraca.pl",
+            "value": true,
+            "title": "www.gazetapraca.pl"
+        },
+        {
+            "type": "bool",
+            "name": "groszki.pl",
+            "value": true,
+            "title": "www.groszki.pl"
+        },
+        {
+            "type": "bool",
+            "name": "kotek.pl",
+            "value": true,
+            "title": "www.kotek.pl"
+        },
+        {
+            "type": "bool",
+            "name": "ladnydom.pl",
+            "value": true,
+            "title": "www.ladnydom.pl"
+        },
+        {
+            "type": "bool",
+            "name": "logo24.pl",
+            "value": true,
+            "title": "www.logo24.pl"
+        },
+        {
+            "type": "bool",
+            "name": "lula.pl",
+            "value": true,
+            "title": "www.lula.pl"
+        },
+        {
+            "type": "bool",
+            "name": "magazyn-kuchnia.pl",
+            "value": true,
+            "title": "www.magazyn-kuchnia.pl"
+        },
+        {
+            "type": "bool",
+            "name": "metropraca.pl",
+            "value": true,
+            "title": "www.metropraca.pl"
+        },
+        {
+            "type": "bool",
+            "name": "moto.pl",
+            "value": true,
+            "title": "www.moto.pl"
+        },
+        {
+            "type": "bool",
+            "name": "namonciaku.pl",
+            "value": true,
+            "title": "www.namonciaku.pl"
+        },
+        {
+            "type": "bool",
+            "name": "plotek.pl",
+            "value": true,
+            "title": "www.plotek.pl"
+        },
+        {
+            "type": "bool",
+            "name": "polygamia.pl",
+            "value": true,
+            "title": "www.polygamia.pl"
+        },
+        {
+            "type": "bool",
+            "name": "popcorner.pl",
+            "value": true,
+            "title": "www.popcorner.pl"
+        },
+        {
+            "type": "bool",
+            "name": "pracawbiurze.pl",
+            "value": true,
+            "title": "www.pracawbiurze.pl"
+        },
+        {
+            "type": "bool",
+            "name": "sport.pl",
+            "value": true,
+            "title": "www.sport.pl"
+        },
+        {
+            "type": "bool",
+            "name": "swiatmotocykli.pl",
+            "value": true,
+            "title": "www.swiatmotocykli.pl"
+        },
+        {
+            "type": "bool",
+            "name": "tokfm.pl",
+            "value": true,
+            "title": "www.tokfm.pl"
+        },
+        {
+            "type": "bool",
+            "name": "tuba.pl",
+            "value": true,
+            "title": "www.tuba.pl"
+        },
+        {
+            "type": "bool",
+            "name": "ugotuj.to",
+            "value": true,
+            "title": "www.ugotuj.to"
+        },
+        {
+            "type": "bool",
+            "name": "wyborcza.biz",
+            "value": true,
+            "title": "www.wyborcza.biz"
+        },
+        {
+            "type": "bool",
+            "name": "wyborcza.pl",
+            "value": true,
+            "title": "www.wyborcza.pl"
+        },
+        {
+            "type": "bool",
+            "name": "wysokieobcasy.pl",
+            "value": true,
+            "title": "www.wysokieobcasy.pl"
+        },
+        {
+            "type": "bool",
+            "name": "zczuba.pl",
+            "value": true,
+            "title": "www.zczuba.pl"
+        }
+    ],
+    "contributors": [],
+    "author": "Paweł Raszewski",
+    "url": "",
+    "description": "Ulepszony interfejs galerii zdjęć w serwisach AGORY. Wszystkie zdjęcia wyświetlają się na jednej stronie.",
+    "name": "eliminator-slajdow",
+    "dependencies": ["api-utils", "addon-kit"],
+    "version": "1.6.0",
+    "lib": "lib",
+    "fullName": "Eliminator Slajdow",
+    "main": "main",
+    "id": "jid0-GaZOxvWNYcafEsmayJDIG3XXVi8",
+    "permissions": {
+        "private-browsing": true
+    }}
