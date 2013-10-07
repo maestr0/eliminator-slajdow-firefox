@@ -1,6 +1,13 @@
 {"license": "",
     "preferences": [
         {
+            "title": "Ikona na pasku dodatków",
+            "type": "bool",
+            "name": "showIcon",
+            "value": true,
+            "description": "Pokaż status ES na pasku dodatków"
+        },
+        {
             "title": "Pasek przewijania",
             "type": "bool",
             "name": "scrollableImageContainer",
