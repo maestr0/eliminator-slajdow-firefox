@@ -82,6 +82,12 @@
         },
         {
             "type": "bool",
+            "name": "foch.pl",
+            "value": true,
+            "title": "www.foch.pl"
+        },
+        {
+            "type": "bool",
             "name": "gazeta.pl",
             "value": true,
             "title": "www.gazeta.pl"
