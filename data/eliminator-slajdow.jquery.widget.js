@@ -11,7 +11,8 @@
             trackingCallback: function (category, action) {
             }
         },
-        sectionToBeRemovedSelector: ".navigation div, .navigation span.page, #gal_navi_wrp, #gazeta_article_image_overlay",
+        sectionToBeEmptySelector: ".navigation div, .navigation span.page, #gal_navi_wrp, #gazeta_article_image_overlay",
+        sectionToBeRemovedSelector: "",
         navigationNextULRSelector: ".navigation .next:first",
         navigationPageNumberSelector: ".navigation .page:first",
         articleBodySelector: "#gazeta_article_body",
@@ -116,8 +117,8 @@
                 var pageNumber = $(galleryPage).find(this.navigationPageNumberSelector).text().split("/");
                 this._logger("numer strony", pageNumber);
                 var nextPageURL = $(galleryPage).find(this.navigationNextULRSelector).attr("href");
-                if (url === nextPageURL || $.inArray(url, this.slideURLs) > -1) {
-                    this._logger("Chyba cos jest zle. URL do nastepnego slajdu zostal juz dodany do listy :/", url, nextPageURL);
+                if (typeof url === "undefined" || url === nextPageURL || $.inArray(url, this.slideURLs) > -1) {
+                    this._logger("Chyba cos jest zle. URL do nastepnego slajdu zostal juz dodany do listy lub jest UNDEFINED:/", url, nextPageURL);
                     return;
                 }
                 this.slideURLs.push(url);
@@ -165,7 +166,7 @@
 
                 $(this.imageContainer).append(slideHeader);
 
-                $(articleSection).find(this.sectionToBeRemovedSelector).empty();
+                $(articleSection).find(this.sectionToBeEmptySelector).empty();
                 var slideWrapper = $(this.imageContainer).append($("<div>", {
                     "class": "slide_" + pageNumber
                 })).children().last();
@@ -178,7 +179,7 @@
                     }));
                 }
 
-                $(slideWrapper).append($(articleSection));
+                $(slideWrapper).append(articleSection);
 
                 if ((pageNumber.length === 2 && pageNumber[0] !== pageNumber[1]) || (!this.hasSlideNumbers && document.location.href.indexOf(nextPageURL) === -1)) {
                     this._logger("link do nastepnej storny", nextPageURL);
@@ -190,7 +191,8 @@
                     this._logger("Ostatnia Strona");
                     this._hideSpinner();
                 }
-                $(this.sectionToBeRemovedSelector).empty();
+                $(this.sectionToBeEmptySelector).empty();
+                $(this.sectionToBeRemovedSelector).remove();
 
                 for (var i in this.classesToBeRemoved) {
                     $("." + this.classesToBeRemoved[i]).removeClass(this.classesToBeRemoved[i]);
@@ -200,7 +202,7 @@
 
             $(".imageContainer > div").css("float", "left").css("width", "100%");
             var imageContainer = $(".imageContainer");
-            if (imageContainer.width() > 950) {
+            if (imageContainer.width() > 950 && this.pageType !== "8") {
                 imageContainer.width(950);
             }
         },
@@ -243,7 +245,7 @@
                 this._logger("jestesmy na stronie z gazetapraca.pl (4)");
                 this.articleBodySelector = "#art";
                 this.navigationPageNumberSelector = ".paging:first";
-                this.sectionToBeRemovedSelector = "div#gal_navi_wrp, #gal_navi_wrp";
+                this.sectionToBeEmptySelector = "div#gal_navi_wrp, #gal_navi_wrp";
                 this.navigationNextULRSelector = "#gal_btn_next a:first";
                 this.sectionToBeAttached = "div#container_gal";
                 this.pageType = "4";
@@ -257,7 +259,7 @@
                 this._logger("jestesmy na stronie z galeria div#article div#article_body (5)");
                 this.articleBodySelector = "#article_body";
                 this.navigationNextULRSelector = "#gal_btn_next a:first";
-                this.sectionToBeRemovedSelector = "#gal_navi_wrp"; // div#article ul,
+                this.sectionToBeEmptySelector = "#gal_navi_wrp"; // div#article ul,
                 this.sectionToBeAttached = "div#container_gal";
                 this.navigationPageNumberSelector = "#gal_navi .paging";
                 this.pageType = "5";
@@ -270,7 +272,7 @@
                 this._logger("jestesmy na stronie z galeria bez typu ('div#k1 div#k1p div#gal_outer') (6)");
                 this.articleBodySelector = "div#gal_outer .description";
                 this.navigationNextULRSelector = "li.btn_next a:first";
-                this.sectionToBeRemovedSelector = "div#article ul, #gal_navi_wrp";
+                this.sectionToBeEmptySelector = "div#article ul, #gal_navi_wrp";
                 this.sectionToBeAttached = "div#gal_picture, div.description, p.description";
                 this.navigationPageNumberSelector = "#gal_navi .paging";
                 $("div#gal_miniatures").empty();
@@ -286,12 +288,24 @@
                 this._logger("autotrader.pl - galeria zdjec samochodu");
                 this.articleBodySelector = "div#Zawartosc div.Detale";
                 this.navigationNextULRSelector = "div:not(.ZjecieZaznaczone).ZdjecieGaleriaMini a";
-                this.sectionToBeRemovedSelector = "div.DetaleZdjeciaMiniOdstep, div.GaleriaPopupNastepne, div.FloatRight.PopupReklamaPoPrawej, div.TextAlignCenter.PopupReklamaNaDole";
+                this.sectionToBeEmptySelector = "div.DetaleZdjeciaMiniOdstep, div.GaleriaPopupNastepne, div.FloatRight.PopupReklamaPoPrawej, div.TextAlignCenter.PopupReklamaNaDole";
                 this.sectionToBeAttached = "div.ZdjecieGaleriaMaxWielkosc";
                 this.navigationPageNumberSelector = "div.PasekZjecieOdstep";
                 this.hasSlideNumbers = false;
                 this.classesToBeRemoved.push("ZdjecieGaleriaMaxWielkosc");
                 this.pageType = "7";
+                this._start();
+            } else if ($("#multiGallery #multiGalleryContent #gallery").length > 0) {
+                this._logger("Galeria MultiGallery na ONET.PL");
+                this.articleBodySelector = "#multiGallery #multiGalleryContent #galleryText";
+                this.sectionToBeEmptySelector = "*[id='mediaList'], script, .onet-ad, .navBox .navBoxContainer, .imageContainer .navBoxClose, .ad_adInfo, .ad_adInfoEnd";
+                this.sectionToBeRemovedSelector = ".imageContainer .navBoxClose, .ad_adInfo, .ad_adInfoEnd";
+                this.navigationNextULRSelector = ".navBox .navBoxContainer a.nextFixed";
+                this.navigationPageNumberSelector = "";
+                this.sectionToBeAttached = "#multiGalleryContent #galleryText"; // sekcja komentarza i obrazek
+                this.headerSectionSelector = "";
+                this.hasSlideNumbers = false;
+                this.pageType = "8";
                 this._start();
             } else {
                 this._logger("Eliminator Slajdow: Tutaj nic nie mam do roboty ;(", document.location.hostname);

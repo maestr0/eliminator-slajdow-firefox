@@ -160,6 +160,12 @@
         },
         {
             "type": "bool",
+            "name": "onet.pl",
+            "value": true,
+            "title": "*.onet.pl"
+        },
+        {
+            "type": "bool",
             "name": "plotek.pl",
             "value": true,
             "title": "www.plotek.pl"
@@ -243,7 +249,7 @@
     "description": "Ulepszony interfejs galerii zdjęć w serwisach AGORY. Wszystkie zdjęcia wyświetlają się na jednej stronie.",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "2.0.1",
+    "version": "2.0.10",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",

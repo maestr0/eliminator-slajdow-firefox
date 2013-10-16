@@ -50,13 +50,20 @@ body.eliminatorSlajdow div.imageContainer div.slideHeader p.headerBar {
     padding: 1px 10px 3px 10px;
     border-radius: 42px;
     height: 14px;
-    color: white
+    color: white;
+    margin: 0;
+    font-family: Arial
 }
 
 body.eliminatorSlajdow div.imageContainer div.slideHeader span.esLogo {
     width: 16px;
     height: 16px;
     float: right
+}
+
+body.eliminatorSlajdow div.imageContainer div.slideHeader span {
+    font-family: Arial;
+    font-size: 11px
 }
 
 body.eliminatorSlajdow div.imageContainer div.slideHeader span.scrollSwitch {
