@@ -183,8 +183,6 @@
             "value": true,
             "title": "www.metropraca.pl"
         },
-
-
         {
             "type": "bool",
             "name": "mmbydgoszcz.pl",
@@ -251,7 +249,6 @@
             "value": true,
             "title": "www.mmmojemiasto.pl"
         },
-
         {
             "type": "bool",
             "name": "mmopole.pl",
@@ -264,8 +261,6 @@
             "value": true,
             "title": "www.mmzielonagora.pl"
         },
-
-
         {
             "type": "bool",
             "name": "moto.pl",
@@ -290,8 +285,6 @@
             "value": true,
             "title": "www.nto.pl"
         },
-
-
         {
             "type": "bool",
             "name": "onet.pl",
@@ -378,7 +371,6 @@
             "value": true,
             "title": "www.wspolczesna.pl"
         },
-
         {
             "type": "bool",
             "name": "wyborcza.biz",
@@ -410,7 +402,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "2.1.0",
+    "version": "2.1.1",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
