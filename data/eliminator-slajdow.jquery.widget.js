@@ -46,10 +46,15 @@
                 this.imageContainer = $(this.articleBodySelector).parent().find(".imageContainerEliminatorSlajdow");
                 this._bind();
                 this._showSpinnier();
-                this.slideURLs.push(document.location.pathname);
+                this.slideURLs.push(document.location.pathname + document.location.search);
                 $.get(nextPageURL, function (nextPage) {
                     that._findNextSlideURL(nextPage, nextPageURL);
                 });
+                if (this.pageType === 3) {
+                    this._removeOverlay();
+                }
+            } else {
+                this._logger("Brak slajdow. Galeria typu " + this.pageType);
             }
         },
         _showSpinnier: function () {
@@ -114,7 +119,7 @@
             this._hideSpinner();
             var articleSection = $(galleryPage).find(this.sectionToBeAttached);
             if ($(articleSection).length > 0) {
-                var pageNumber = $(galleryPage).find(this.navigationPageNumberSelector).text().split("/");
+                var pageNumber = $(galleryPage).find(this.navigationPageNumberSelector).text().match(/(\d+)/g);
                 this._logger("numer strony", pageNumber);
                 var nextPageURL = $(galleryPage).find(this.navigationNextULRSelector).attr("href");
                 if (typeof url === "undefined" || url === nextPageURL || $.inArray(url, this.slideURLs) > -1) {
@@ -206,6 +211,19 @@
                 imageContainer.width(950);
             }
         },
+        _updateGalleryLink: function () {
+            var galleryLink = $("#gazeta_article_miniatures .moreImg a");
+            if (galleryLink.length === 1) {
+                var href = galleryLink.attr("href");
+                var suffix = "?i=1";
+                if (href && (href.indexOf(suffix, href.length - suffix.length) !== -1)) {
+                    galleryLink.attr("href", href.substring(0, href.length - suffix.length));
+                }
+            }
+        },
+        _removeOverlay: function () {
+            $("#gazeta_article_image div.overlayBright").remove();
+        },
         _create: function (customOptions) {
             $.extend(true, this, this, customOptions);
             this.spinner = $("<div>", {"class": "eliminatorSlajdowSpinner"}).append($("<img>", {src: this.options.spinningIconUrl}));
@@ -234,6 +252,8 @@
                 this._logger("jestesmy na stronie z galeria #pagetype_art (3)");
                 this.sectionToBeAttached = "#gazeta_article_image,#gazeta_article_body, div[id*='gazeta_article_image_']:not('#gazeta_article_image_overlay')"; // sekcja komentarza i obrazek
                 this.pageType = "3";
+                this._updateGalleryLink();
+                this._removeOverlay();
                 this._start();
 
             } else if ($("div#art div#container_gal").length > 0) {
@@ -306,6 +326,55 @@
                 this.headerSectionSelector = "";
                 this.hasSlideNumbers = false;
                 this.pageType = "8";
+                this._start();
+            } else if ($("div#page div#pageWrapper div#photo div#photoContainer div.nav a").length > 0) {
+                /*
+                * http://www.wspolczesna.pl/apps/pbcs.dll/gallery?Site=GW&Date=20131029&Category=GALERIA01&ArtNo=102909998&Ref=PH&Params=Itemnr=1
+                * */
+                this._logger("Galeria MediaRegionalne ");
+                this.pageType = "9";
+                // wrapper na caly art
+                this.articleBodySelector = "div#photo";
+
+                this.sectionToBeEmptySelector = "script";
+                this.sectionToBeRemovedSelector = "div#tngallery, p#photoNavigation, .imageContainerEliminatorSlajdow div#photoRelatedArticles, .imageContainerEliminatorSlajdow div#photo p.photoMeta";
+                this.navigationNextULRSelector = "p#photoNavigation a#photoNavigationNext";
+                this.navigationPageNumberSelector = "span#photoNavigationPages";
+                this.sectionToBeAttached = "div#photo"; // sekcja komentarza i obrazek
+                this.headerSectionSelector = "";
+                this.hasSlideNumbers = true;
+                this._start();
+            } else if ($("div#page div#pageWrapper div#article.photostory div#photoContainer div.nav a").length > 0) {
+                /*
+                * http://www.wspolczesna.pl/apps/pbcs.dll/article?AID=/20131029/REG00/131029705
+                * */
+                this._logger("Galeria MediaRegionalne - artykul");
+                this.pageType = "10";
+                // wrapper na caly art
+                this.articleBodySelector = "div#article";
+                this.sectionToBeEmptySelector = "script";
+                this.sectionToBeRemovedSelector = "p.photoNavigation, div#photoContainer div.nav";
+                this.navigationNextULRSelector = "p.photoNavigation a.photoNavigationNext";
+                this.navigationPageNumberSelector = "span.photoNavigationPages:first";
+                this.sectionToBeAttached = "div#article div.intextAd"; // sekcja komentarza i obrazek
+                this.headerSectionSelector = "";
+                this.hasSlideNumbers = true;
+                this._start();
+            } else if ($("div#main-column div#photo.common-box div.inner div.photo-item div.photoElem a.next").length > 0) {
+                /*
+                * http://www.mmbydgoszcz.pl/photo/1886182/Photo+Walk+Koronowo+2013
+                * */
+                this._logger("Galeria MojeMiasto");
+                this.pageType = "11";
+                // wrapper na caly art
+                this.articleBodySelector = "div#photo div.photo-item";
+                this.sectionToBeEmptySelector = "script";
+                this.sectionToBeRemovedSelector = "div.photo-item div.photoElem a";
+                this.navigationNextULRSelector = "div#main-column div#photo.common-box div.inner div.photo-item div.photoElem a.next";
+                this.navigationPageNumberSelector = "div#photo.common-box div.top-slider div.slider";
+                this.sectionToBeAttached = "div.photo-item"; // sekcja komentarza i obrazek
+                this.headerSectionSelector = "";
+                this.hasSlideNumbers = true;
                 this._start();
             } else {
                 this._logger("Eliminator Slajdow: Tutaj nic nie mam do roboty ;(", document.location.hostname);

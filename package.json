@@ -70,6 +70,18 @@
         },
         {
             "type": "bool",
+            "name": "dziennikwschodni.pl",
+            "value": true,
+            "title": "www.dziennikwschodni.pl"
+        },
+        {
+            "type": "bool",
+            "name": "echodnia.eu",
+            "value": true,
+            "title": "www.echodnia.eu"
+        },
+        {
+            "type": "bool",
             "name": "edziecko.pl",
             "value": true,
             "title": "www.edziecko.pl"
@@ -100,9 +112,27 @@
         },
         {
             "type": "bool",
+            "name": "gazetalubuska.pl",
+            "value": true,
+            "title": "www.gazetalubuska.pl"
+        },
+        {
+            "type": "bool",
             "name": "gazetapraca.pl",
             "value": true,
             "title": "www.gazetapraca.pl"
+        },
+        {
+            "type": "bool",
+            "name": "gk24.pl",
+            "value": true,
+            "title": "www.gk24.pl"
+        },
+        {
+            "type": "bool",
+            "name": "gp24.pl",
+            "value": true,
+            "title": "www.gp24.pl"
         },
         {
             "type": "bool",
@@ -110,6 +140,13 @@
             "value": true,
             "title": "www.groszki.pl"
         },
+        {
+            "type": "bool",
+            "name": "gs24.pl",
+            "value": true,
+            "title": "www.gs24.pl"
+        },
+
         {
             "type": "bool",
             "name": "kotek.pl",
@@ -146,6 +183,89 @@
             "value": true,
             "title": "www.metropraca.pl"
         },
+
+
+        {
+            "type": "bool",
+            "name": "mmbydgoszcz.pl",
+            "value": true,
+            "title": "www.mmbydgoszcz.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmwroclaw.pl",
+            "value": true,
+            "title": "www.mmwroclaw.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmkrakow.pl",
+            "value": true,
+            "title": "www.mmkrakow.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmlodz.pl",
+            "value": true,
+            "title": "www.mmlodz.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmlublin.pl",
+            "value": true,
+            "title": "www.mmlublin.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmpoznan.pl",
+            "value": true,
+            "title": "www.mmpoznan.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmsilesia.pl",
+            "value": true,
+            "title": "www.mmsilesia.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmszczecin.pl",
+            "value": true,
+            "title": "www.mmszczecin.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmtrojmiasto.pl",
+            "value": true,
+            "title": "www.mmtrojmiasto.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmwarszawa.pl",
+            "value": true,
+            "title": "www.mmwarszawa.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmmojemiasto.pl",
+            "value": true,
+            "title": "www.mmmojemiasto.pl"
+        },
+
+        {
+            "type": "bool",
+            "name": "mmopole.pl",
+            "value": true,
+            "title": "www.mmopole.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmzielonagora.pl",
+            "value": true,
+            "title": "www.mmzielonagora.pl"
+        },
+
+
         {
             "type": "bool",
             "name": "moto.pl",
@@ -160,10 +280,31 @@
         },
         {
             "type": "bool",
+            "name": "nowiny24.pl",
+            "value": true,
+            "title": "www.nowiny24.pl"
+        },
+        {
+            "type": "bool",
+            "name": "nto.pl",
+            "value": true,
+            "title": "www.nto.pl"
+        },
+
+
+        {
+            "type": "bool",
             "name": "onet.pl",
             "value": true,
             "title": "*.onet.pl"
         },
+        {
+            "type": "bool",
+            "name": "poranny.pl",
+            "value": true,
+            "title": "poranny.pl"
+        },
+
         {
             "type": "bool",
             "name": "plotek.pl",
@@ -175,6 +316,12 @@
             "name": "polygamia.pl",
             "value": true,
             "title": "www.polygamia.pl"
+        },
+        {
+            "type": "bool",
+            "name": "pomorska.pl",
+            "value": true,
+            "title": "www.pomorska.pl"
         },
         {
             "type": "bool",
@@ -208,6 +355,13 @@
         },
         {
             "type": "bool",
+            "name": "to.com.pl",
+            "value": true,
+            "title": "www.to.com.pl"
+        },
+
+        {
+            "type": "bool",
             "name": "tuba.pl",
             "value": true,
             "title": "www.tuba.pl"
@@ -218,6 +372,13 @@
             "value": true,
             "title": "www.ugotuj.to"
         },
+        {
+            "type": "bool",
+            "name": "wspolczesna.pl",
+            "value": true,
+            "title": "www.wspolczesna.pl"
+        },
+
         {
             "type": "bool",
             "name": "wyborcza.biz",
@@ -246,10 +407,10 @@
     "contributors": [],
     "author": "Paweł Raszewski",
     "url": "",
-    "description": "Ulepszony interfejs galerii zdjęć w serwisach AGORY. Wszystkie zdjęcia wyświetlają się na jednej stronie.",
+    "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "2.0.11",
+    "version": "2.1.0",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
