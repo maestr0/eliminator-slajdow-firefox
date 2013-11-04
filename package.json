@@ -402,7 +402,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "2.1.1",
+    "version": "2.1.2",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
