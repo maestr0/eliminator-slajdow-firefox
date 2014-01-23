@@ -3,3 +3,4 @@
 *.iml
 lib/*.iml
 *.xpi
+initSDK.sh

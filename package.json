@@ -82,6 +82,12 @@
         },
         {
             "type": "bool",
+            "name": "edulandia.pl",
+            "value": true,
+            "title": "www.edulandia.pl"
+        },
+        {
+            "type": "bool",
             "name": "edziecko.pl",
             "value": true,
             "title": "www.edziecko.pl"
@@ -402,7 +408,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "2.1.6",
+    "version": "2.1.9",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
