@@ -12,7 +12,7 @@
             }
         },
         sectionToBeEmptySelector: ".navigation div, .navigation span.page, #gal_navi_wrp, #gazeta_article_image_overlay",
-        sectionToBeRemovedSelector: "",
+        sectionToBeRemovedSelector: "#gazeta_article_image div.overlayBright",
         navigationNextULRSelector: ".navigation .next:first",
         navigationPageNumberSelector: ".navigation .page:first",
         articleBodySelector: "#gazeta_article_body",
@@ -319,7 +319,7 @@
                  Regresja
                  http://www.autotrader.pl/audi_q7_3_6_2006_r/126001921/pg
                  */
-                this._logger("autotrader.pl - galeria zdjec samochodu");
+                this._logger("autotrader.pl - galeria zdjec samochodu - 2013");
                 this.articleBodySelector = "div#Zawartosc div.Detale";
                 this.navigationNextULRSelector = "div:not(.ZjecieZaznaczone).ZdjecieGaleriaMini a";
                 this.sectionToBeEmptySelector = "div.DetaleZdjeciaMiniOdstep, div.GaleriaPopupNastepne, div.FloatRight.PopupReklamaPoPrawej, div.TextAlignCenter.PopupReklamaNaDole";
@@ -358,7 +358,7 @@
                 this.headerSectionSelector = "";
                 this.hasSlideNumbers = true;
                 this._start();
-            } else if ($("div#page div#pageWrapper div#article.photostory div#photoContainer div.nav a").length > 0) {
+            } else if ($("div#page div#pageWrapper div#article.photostory p.photoNavigation a.photoNavigationNext").length > 0) {
                 /*
                  * http://www.wspolczesna.pl/apps/pbcs.dll/article?AID=/20131029/REG00/131029705
                  * */
@@ -367,7 +367,8 @@
                 // wrapper na caly art
                 this.articleBodySelector = "div#article";
                 this.sectionToBeEmptySelector = "script";
-                this.sectionToBeRemovedSelector = "p.photoNavigation, div#photoContainer div.nav";
+                // do usuniecia TYLKO z zalaczanej czesci okreslonej selektorem sectionToBeAttached
+                this.sectionToBeRemovedSelector = "p.photoNavigation, div#photoContainer div.nav, div#photoElement div.nav, h2";
                 this.navigationNextULRSelector = "p.photoNavigation a.photoNavigationNext";
                 this.navigationPageNumberSelector = "span.photoNavigationPages:first";
                 this.sectionToBeAttached = "div#article div.intextAd"; // sekcja komentarza i obrazek
@@ -383,7 +384,7 @@
                 // wrapper na caly art
                 this.articleBodySelector = "div#photo div.photo-item";
                 this.sectionToBeEmptySelector = "script";
-                this.sectionToBeRemovedSelector = "div.photo-item div.photoElem a";
+                this.sectionToBeRemovedSelector = "div.photoElem a";
                 this.navigationNextULRSelector = "div#main-column div#photo.common-box div.inner div.photo-item div.photoElem a.next";
                 this.navigationPageNumberSelector = "div#photo.common-box div.top-slider div.slider";
                 this.sectionToBeAttached = "div.photo-item"; // sekcja komentarza i obrazek
@@ -410,6 +411,54 @@
                 this._removeOverlay();
                 this._start();
 
+            } else if ($("div#page div#pageWrapper div#photo p#photoNavigation a#photoNavigationNext").length > 0) {
+                /*
+                 * http://www.gazetalubuska.pl/apps/pbcs.dll/gallery?Site=GL&Date=20140201&Category=galeria&ArtNo=201009994&Ref=PH&Params=Itemnr=1
+                 * http://www.wspolczesna.pl/apps/pbcs.dll/gallery?Site=GW&Date=20140131&Category=GALERIA01&ArtNo=131009996&Ref=PH
+                 * */
+                this._logger("Galeria MediaRegionalne - Galeria 13");
+                this.pageType = "13";
+                // wrapper na caly art
+                this.articleBodySelector = "div#photo";
+                this.sectionToBeEmptySelector = "script";
+                this.sectionToBeRemovedSelector = "#tngallery, #photoRelatedArticles, #photoNavigation, #photoElement div.nav";
+                this.navigationNextULRSelector = "p#photoNavigation a#photoNavigationNext";
+                this.navigationPageNumberSelector = "span#photoNavigationPages";
+                this.sectionToBeAttached = "div#photo img, div#photo p:nth-child(7)"; // sekcja komentarza i obrazek
+                this.headerSectionSelector = "";
+                this.hasSlideNumbers = true;
+                this._start();
+            } else if ($("div#wrapper > div > div#photo p#galleryNav a#galleryNavNext").length > 0) {
+                /*
+                 * http://www.nowiny24.pl/apps/pbcs.dll/gallery?Site=NW&Date=20140126&Category=IMPREZY07&ArtNo=126009999&Ref=PH&Params=Itemnr=1
+                 * */
+                this._logger("Galeria MediaRegionalne - Galeria 14");
+                this.pageType = "14";
+                // wrapper na caly art
+                this.articleBodySelector = "div#photo";
+                this.sectionToBeEmptySelector = "script";
+                this.sectionToBeRemovedSelector = "#galleryNav, #tngalleryScroll";
+                this.navigationNextULRSelector = "p#galleryNav a#galleryNavNext";
+                this.navigationPageNumberSelector = "p#galleryNav";
+                this.sectionToBeAttached = "div#photo img, #photo p:first"; // sekcja komentarza i obrazek
+                this.headerSectionSelector = "";
+                this.hasSlideNumbers = true;
+                this._start();
+            } else if ($("div#LeftContent div#MainGallery img#PhotoInMainGallery").length > 0) {
+                /*
+                 Regresja
+                 http://www.autotrader.pl/audi_q7_3_6_2006_r/126001921/pg
+                 */
+                this._logger("autotrader.pl - galeria zdjec samochodu - 2014");
+                this.articleBodySelector = "div#MainGallery";
+                this.navigationNextULRSelector = "div:not(.ZjecieZaznaczone).ZdjecieGaleriaMini a";
+                this.sectionToBeEmptySelector = "div.DetaleZdjeciaMiniOdstep, div.GaleriaPopupNastepne, div.FloatRight.PopupReklamaPoPrawej, div.TextAlignCenter.PopupReklamaNaDole";
+                this.sectionToBeAttached = "div.ZdjecieGaleriaMaxWielkosc";
+                this.navigationPageNumberSelector = "div.PasekZjecieOdstep";
+                this.hasSlideNumbers = false;
+                this.classesToBeRemoved.push("ZdjecieGaleriaMaxWielkosc");
+                this.pageType = "15";
+                this._start();
             } else {
                 this._logger("Eliminator Slajdow: Tutaj nic nie mam do roboty ;(", document.location.hostname);
             }
