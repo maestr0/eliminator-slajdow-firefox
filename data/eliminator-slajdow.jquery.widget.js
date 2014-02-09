@@ -256,6 +256,7 @@
                 this.sectionToBeAttached = "#gazeta_article_image img,#gazeta_article_body, div[id*='gazeta_article_image_']:not('#gazeta_article_image_overlay')";
                 this._logger("jestesmy na stronie z galeria #pagetype_art_blog (2)");
                 this.pageType = "2";
+                this.classesToBeRemoved.push("gazetaVideoPlayer");
                 this._updateGalleryLink();
                 this._start();
             } else if ($("body#pagetype_art #gazeta_article_tools").length > 0) {
