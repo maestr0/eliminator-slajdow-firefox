@@ -36,7 +36,8 @@ a {
 }
 
 #options .waning {
-    color: red
+    color: red;
+    float:left;
 }
 
 #options .extensionStatusMessage.label {
@@ -47,7 +48,8 @@ a {
 }
 
 #options .extensionInfo {
-    float: left
+    float: left;
+    width: 100%;
 }
 
 #options #enableTracking {

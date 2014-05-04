@@ -1,13 +1,6 @@
 {"license": "",
     "preferences": [
         {
-            "title": "Ikona na pasku dodatków",
-            "type": "bool",
-            "name": "showIcon",
-            "value": true,
-            "description": "Pokaż status ES na pasku dodatków"
-        },
-        {
             "title": "Pasek przewijania",
             "type": "bool",
             "name": "scrollableImageContainer",
@@ -420,7 +413,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "2.3.0",
+    "version": "2.4.0",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
