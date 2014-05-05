@@ -36,7 +36,7 @@
                 sectionToBeEmptySelector: "#gazeta_article_miniatures",
                 sectionToBeRemovedSelector: "#gazeta_article_top .navigation, #gazeta_article .navigation, #gazeta_article_image .overlayBright",
                 pageType: "1",
-                customStyle: {"#col_left": "width:auto", "columns_wrap": "background:none",
+                customStyle: {"#col_left": "width:auto", "#columns_wrap": "background:none",
                     ".path_duzy_kadr .imageContainerEliminatorSlajdow p.headerLogo, .path_duzy_kadr .slideTitle": "color: white"},
                 preIncludeCallback: function () {
                     $("#col_left").width($("#gazeta_article_image div a img").width());
@@ -271,6 +271,40 @@
                     "http://kobieta.wp.pl/gid,16425464,img,16425465,kat,26405,title,Obledna-kreacja-Jennifer-Lopez,galeriazdjecie.html?ticaid=1124c8"],
                 preIncludeCallback: function () {
                 }
+            },
+            {   trigger: "div#content div#largepic_wrapper div#largepic",
+                name: "kwejk.pl",
+                articleBodySelector: "div#content div.content",
+                navigationNextULRSelector: "div#largepic_wrapper a.next_image",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: "div#content div.content",
+                sectionToBeRemovedSelector: "div#largepic_wrapper > a",
+                navigationPageNumberSelector: "",
+                sectionToBeRemovedFromAttachedSlidesSelector: ".image_carousel, script, div.share",
+                customStyle: {},
+                hasSlideNumbers: false,
+                pageType: "19",
+                regressionUrls: ["http://kwejk.pl/article/2054448/20/caa", 
+                    "http://kwejk.pl/article/2054452/0/co-mozna-zmiescic-w-c-5-galaxy.html#gallerypic"],
+                preIncludeCallback: function () {
+                }
+            },
+            {   trigger: "body#strona-artykulu div#glowna-kolumna div#galeria-material-zdjecie",
+                name: "gazetawroclawska.pl",
+                articleBodySelector: "#galeria-material",
+                navigationNextULRSelector: "#galeria-nastepne-2",
+                sectionToBeEmptySelector: "#miniatury-kontener, #galeria-poprzednie-2, #galeria-nastepne-2, .iloscZdjec",
+                sectionToBeAttached: "#galeria-material-zdjecie",
+                sectionToBeRemovedSelector: "#miniatury-kontener",
+                navigationPageNumberSelector: ".iloscZdjec",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, #miniatury-kontener, #galeria-poprzednie-2, #galeria-nastepne-2, .iloscZdjec",
+                customStyle: {},
+                hasSlideNumbers: true,
+                pageType: "20",
+                regressionUrls: ["http://www.gazetawroclawska.pl/artykul/3424383,ruszyl-remont-minskiej-od-rana-utrudnienia-i-gigantyczne-korki-na-muchoborze-zdjecia,1,4,id,t,sm,sg.html#galeria-material"],
+                preIncludeCallback: function () {
+                    $(".lazy.powiekszenie").attr("src",$(".lazy.powiekszenie").attr("data-original")).removeClass("lazy");
+                }
             }
         ],
         spinner: null,
@@ -323,9 +357,11 @@
                 var slideHeader = $("<div>", {
                     "class": "slideHeader slideHeader_" + pageNumber
                 }).append($("<p>", {
-                        "class": "headerBar",
-                        text: pageNumberLabel
+                        "class": "headerBar"                        
                     }).append($("<span>", {
+                            "class": "pageNumber",
+                            text: pageNumberLabel                            
+                        })).append($("<span>", {
                             "class": "esLogo",
                             style: "background:url('" + this.options.esLogoUrl + "') no-repeat 0 0 /16px"
                         })).append($("<span>", {
@@ -527,12 +563,19 @@
             }
         },
         regression: function () {
+            var setTimeoutFunction = function(urlToOpen, pi) {
+                setTimeout(function(){                
+                    window.open(urlToOpen);
+                 } , 20000 * (pi));                    
+            }
+
             for (var pi in  this.pages) {
                 var page = this.pages[pi];
                 var urls = page.regressionUrls;
                 for (var index in urls) {
-                    $("body").append("<a href=' " + urls[index] + "'>" + page.pageType + " -- " + page.name + " -- " + urls[index] + "</a><br />");
-                    window.open(urls[index] + "#TYPE_" + page.pageType);
+                    $("body").append("<a href=' " + urls[index] + "'>" + page.pageType + " -- " + page.name + " -- " + urls[index] + "</a><br />");                
+                    var urlToOpen = urls[index] + '#TYPE_' + page.pageType;
+                    setTimeoutFunction(urlToOpen, pi);
                 }
             }
 

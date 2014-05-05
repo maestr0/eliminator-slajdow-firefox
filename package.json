@@ -69,10 +69,33 @@
         },
         {
             "type": "bool",
+            "name": "dziennikbaltycki.pl",
+            "value": true,
+            "title": "www.dziennikbaltycki.pl"
+        },      
+        {
+            "type": "bool",
+            "name": "dziennikpolski24.pl",
+            "value": true,
+            "title": "www.dziennikpolski24.pl"
+        },          {
+            "type": "bool",
+            "name": "dzienniklodzki.pl",
+            "value": true,
+            "title": "www.dzienniklodzki.pl"
+        },
+        {
+            "type": "bool",
             "name": "dziennikwschodni.pl",
             "value": true,
             "title": "www.dziennikwschodni.pl"
         },
+        {
+            "type": "bool",
+            "name": "dziennikzachodni.pl",
+            "value": true,
+            "title": "www.dziennikzachodni.pl"
+        },         
         {
             "type": "bool",
             "name": "echodnia.eu",
@@ -90,6 +113,12 @@
             "name": "edziecko.pl",
             "value": true,
             "title": "www.edziecko.pl"
+        },
+        {
+            "type": "bool",
+            "name": "expressilustrowany.pl",
+            "value": true,
+            "title": "www.expressilustrowany.pl"
         },
         {
             "type": "bool",
@@ -117,6 +146,12 @@
         },
         {
             "type": "bool",
+            "name": "gazetakrakowska.pl",
+            "value": true,
+            "title": "www.gazetakrakowska.pl"
+        },
+        {
+            "type": "bool",
             "name": "gazetalubuska.pl",
             "value": true,
             "title": "www.gazetalubuska.pl"
@@ -129,10 +164,22 @@
         },
         {
             "type": "bool",
+            "name": "gazetawroclawska.pl",
+            "value": true,
+            "title": "www.gazetawroclawska.pl"
+        },
+        {
+            "type": "bool",
             "name": "gk24.pl",
             "value": true,
             "title": "www.gk24.pl"
         },
+        {
+            "type": "bool",
+            "name": "gloswielkopolski.pl",
+            "value": true,
+            "title": "www.gloswielkopolski.pl"
+        },        
         {
             "type": "bool",
             "name": "gp24.pl",
@@ -151,13 +198,24 @@
             "value": true,
             "title": "www.gs24.pl"
         },
-
         {
             "type": "bool",
             "name": "kotek.pl",
             "value": true,
             "title": "www.kotek.pl"
         },
+        {
+            "type": "bool",
+            "name": "kurierlubelski.pl",
+            "value": true,
+            "title": "www.kurierlubelski.pl"
+        },        
+        {
+            "type": "bool",
+            "name": "kwejk.pl",
+            "value": true,
+            "title": "www.kwejk.pl"
+        },        
         {
             "type": "bool",
             "name": "ladnydom.pl",
@@ -311,6 +369,12 @@
         },
         {
             "type": "bool",
+            "name": "polskatimes.pl",
+            "value": true,
+            "title": "www.polskatimes.pl"
+        },
+        {
+            "type": "bool",
             "name": "polygamia.pl",
             "value": true,
             "title": "www.polygamia.pl"
@@ -413,7 +477,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "2.4.0",
+    "version": "3.0.3",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
