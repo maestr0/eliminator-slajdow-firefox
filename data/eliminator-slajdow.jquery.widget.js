@@ -1,10 +1,10 @@
 (function ($) {
     $.widget("info_raszewski.eliminatorSlajdow", {
         options: {
+            imageBaseUrl: "",
             scrollableImageContainer: false,
-            spinningIconUrl: "images/ajax-loader.gif",
-            facebookIconUrl: "images/icon_facebook.gif",
-            esLogoUrl: "images/icon_facebook.gif",
+            spinningIconUrl: "ajax-loader.gif",
+            esLogoUrl: "es_logo.svg",
             cssPath: "",
             facebookUrl: "https://www.facebook.com/eliminator-slajdow?ref=chrome.extension",
             bugReportUrl: "https://eliminator-slajdow.sugester.pl/",
@@ -284,7 +284,7 @@
                 customStyle: {},
                 hasSlideNumbers: false,
                 pageType: "19",
-                regressionUrls: ["http://kwejk.pl/article/2054448/20/caa", 
+                regressionUrls: ["http://kwejk.pl/article/2054448/20/caa",
                     "http://kwejk.pl/article/2054452/0/co-mozna-zmiescic-w-c-5-galaxy.html#gallerypic"],
                 preIncludeCallback: function () {
                 }
@@ -304,11 +304,211 @@
                 regressionUrls: ["http://www.gazetawroclawska.pl/artykul/3424383,ruszyl-remont-minskiej-od-rana-utrudnienia-i-gigantyczne-korki-na-muchoborze-zdjecia,1,4,id,t,sm,sg.html#galeria-material",
                     "http://www.gloswielkopolski.pl/artykul/3431295,oceniamy-pilkarzy-po-meczu-lech-poznan-gornik-zabrze-sprawdz,id,t.html"],
                 preIncludeCallback: function () {
-                    $(".lazy.powiekszenie").attr("src",$(".lazy.powiekszenie").attr("data-original")).removeClass("lazy");
+                    $(".lazy.powiekszenie").attr("src", $(".lazy.powiekszenie").attr("data-original")).removeClass("lazy");
+                }
+            },
+            {   trigger: "div#main_container div.demotivator.pic #royalSliderExtraNavigation a.navigate_right",
+                name: "demotywatory.pl",
+                articleBodySelector: "#main_container .demotivator .demot_pic",
+                navigationNextULRSelector: "#royalSliderExtraNavigation a.navigate_right",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: ".demotivator .demot_pic .rsSlideContent",
+                sectionToBeRemovedSelector: "#pics_gallery_slider, #royalSliderExtraNavigation, .share-widgets, .demot_info_stats",
+                navigationPageNumberSelector: "#royalSliderExtraNavigation .paginator_data",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, .share-widgets, .rsTmb",
+                headerSectionSelector: ".demotivator .demot_pic .rsSlideContent:first h3",
+                customStyle: {'rsSlideContent h3': 'display:none', '#main_container article, #main_container .demotivator': 'float:left',
+                    '.rsSlideContent .relative': 'text-align: center'},
+                hasSlideNumbers: false,
+                pageType: "21",
+                regressionUrls: ["http://demotywatory.pl/4339879/Najciekawsze-fakty-o-ktorych-prawdopodobnie-nie-miales-pojecia#obrazek-1",
+                    "http://demotywatory.pl/4344639/14-najglupszych-sposobow-na-zerwanie-z-kims"],
+                preIncludeCallback: function () {
+                    this.nextPageURL = document.location.protocol + "//" + document.location.host + document.location.pathname;
+                    $(".imageContainerEliminatorSlajdow .rsSlideContent").appendTo($(".imageContainerEliminatorSlajdow"));
+                    $(".imageContainerEliminatorSlajdow .el_slide, .imageContainerEliminatorSlajdow .slideHeader").remove();
+                    var self = this;
+                    $(".imageContainerEliminatorSlajdow .rsSlideContent:first").remove();
+                    $(".imageContainerEliminatorSlajdow .rsSlideContent").each(function (index) {
+                        $(this).wrap("<div class='slide_" + index + " es_slide'></div>").parent().before(self._buildHeader('Slajd ' + (index + 2) + ' z ' + $(".imageContainerEliminatorSlajdow .rsSlideContent").length, index + 2, document.location.href));
+                    });
+                }
+            },
+            {   trigger: "body#Fakt .pageContent .leftColumn .paginaHolder .paginator.panigaGalery",
+                name: "fakt.pl",
+                articleBodySelector: "body#Fakt .pageContent .leftColumn .Scroll-View-Gallery",
+                navigationNextULRSelector: ".pageContent .leftColumn .paginaHolder .paginator.panigaGalery a.next",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: "#bigPicture",
+                sectionToBeRemovedSelector: ".pageBigGallery .zoomer, .paginaHolder",
+                navigationPageNumberSelector: ".pageBigGallery .zoomer, .paginaHolder:first span",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                customStyle: {},
+                hasSlideNumbers: true,
+                pageType: "22",
+                regressionUrls: ["http://www.fakt.pl/aktorki-usmiercone-przez-scenarzystow,galeria,464577,1.html"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: "body#loneGallery #bigPicture",
+                name: "fakt.pl nowa",
+                articleBodySelector: "#bigPicture",
+                navigationNextULRSelector: "#imgHolder .paginator .next",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: "#bigPicture, .rightColumn",
+                sectionToBeRemovedSelector: "#galleryslider, .paginator, .zoomer",
+                navigationPageNumberSelector: ".rightColumn .nrFoto",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, .nrFoto, .socialButtons, .Region",
+                customStyle: {'.imageContainerEliminatorSlajdow .rightColumn': 'float:left;width:100%'},
+                hasSlideNumbers: true,
+                pageType: "23",
+                regressionUrls: ["http://www.fakt.pl/dlaczego-maz-zostawil-glinke-,artykuly,464472,1,1,1.html"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: ".glownyKontener #material-artykul .galeriaArtykulowa #material-galeria-nastepne",
+                name: "naszemiasto.pl",
+                articleBodySelector: ".galeriaArtykulowa",
+                navigationNextULRSelector: "#material-galeria-nastepne",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: ".galeriaArtykul",
+                sectionToBeRemovedSelector: "#galeria, .paginacja, .lupa, .strzalka, #powrot-miniaturki",
+                navigationPageNumberSelector: ".iloscZdjec",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                customStyle: {'*[id="galeria-z-opisem"]': 'float:left'},
+                hasSlideNumbers: true,
+                pageType: "24",
+                regressionUrls: ["http://warszawa.naszemiasto.pl/artykul/galeria/pogrzeb-jaruzelskiego-na-powazkach-wideo-zdjecia,2290964,9379362,t,id,zid.html#galeria"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: ".glownyKontener .trescOpisu .paginacja #material-galeria-nastepne",
+                name: "naszemiasto.pl szeroka",
+                articleBodySelector: "#galeria-z-opisem",
+                navigationNextULRSelector: "#material-galeria-nastepne",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: "#galeria-z-opisem",
+                sectionToBeRemovedSelector: "#galeria, .paginacja, .lupa, .strzalka, #powrot-miniaturki, #material-galeria-nastepne-czytaj",
+                navigationPageNumberSelector: ".iloscZdjec",
+                sectionToBeRemovedFromAttachedSlidesSelector: "",
+                customStyle: {},
+                hasSlideNumbers: true,
+                pageType: "25",
+                regressionUrls: ["http://warszawa.naszemiasto.pl/artykul/galeria/pogrzeb-jaruzelskiego-na-powazkach-wideo-zdjecia,2290964,9379362,t,id,zid.html#galeria"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: "div#page article.single-article .gallery .paging .next",
+                name: "wawalove.pl",
+                articleBodySelector: ".see-big",
+                navigationNextULRSelector: "article.single-article .gallery .paging .next",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: ".see-big",
+                sectionToBeRemovedSelector: ".paging, .thumbs",
+                navigationPageNumberSelector: ".paging-info:first",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                customStyle: {},
+                hasSlideNumbers: true,
+                pageType: "26",
+                regressionUrls: ["http://wawalove.pl/Ogolnopolskie-Zawody-Jezdzieckie-w-skokach-przez-przeszkody-g14407/foto_70848#foto",
+                    "http://wawalove.pl/Policja-rozbila-tzw-Grupe-Mokotowska-MOCNE-WIDEO-g14398/foto_70824"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: "section.article_site div.gallery_art div.new_article_gallery .next",
+                name: "se.pl",
+                articleBodySelector: ".new_article_gallery",
+                navigationNextULRSelector: "div.new_article_gallery .next:first",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: ".new_article_gallery",
+                sectionToBeRemovedSelector: ".new_article_pager, .prev, .next",
+                navigationPageNumberSelector: "",
+                sectionToBeRemovedFromAttachedSlidesSelector: ".howmany",
+                customStyle: {'.imageContainerEliminatorSlajdow': 'margin-top:20px'},
+                hasSlideNumbers: false,
+                pageType: "27",
+                regressionUrls: ["http://www.se.pl/intymnie/super-eros/dzisiaj-dzien-bez-stanika_404053.html"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: "div#page div#main div.article-slideshow .article-matter .slideshow-wrapper",
+                name: "sfora.pl",
+                articleBodySelector: ".slideshow-wrapper",
+                navigationNextULRSelector: ".article-matter .slideshow-next:first",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: ".slideshow-wrapper",
+                sectionToBeRemovedSelector: ".slideshow-paging",
+                navigationPageNumberSelector: ".slideshow-current:first",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                customStyle: {'.imageContainerEliminatorSlajdow': 'margin-top:20px'},
+                hasSlideNumbers: true,
+                pageType: "28",
+                regressionUrls: ["http://www.sfora.pl/swiat/Zamordowal-rodzicow-lomem-Bo-zabrali-mu-iPoda-s68307"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: "div#page div#main div.article-gallery .article-matter .gallery-content .gallery-img-big",
+                name: "sfora.pl nowa",
+                articleBodySelector: ".article-matter",
+                navigationNextULRSelector: ".gallery-img-big .next:first",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: ".article-matter",
+                sectionToBeRemovedSelector: ".prev, .next, .gallery-top",
+                navigationPageNumberSelector: "",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                customStyle: {'.imageContainerEliminatorSlajdow': 'margin-top:20px'},
+                hasSlideNumbers: false,
+                pageType: "29",
+                regressionUrls: ["http://www.sfora.pl/polska/KorwinMikke-triumfuje-internet-oszalal-Wysyp-memow-g68152-185752",
+                    "http://www.sfora.pl/swiat/Historia-bomby-atomowej-Wyciekly-tajne-fotografie-g67943"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: ".page .main-content .article--gallery .gallery .gallery__content .gallery__image-wrapper .next-btn",
+                name: "biztok.pl",
+                articleBodySelector: ".gallery__content",
+                navigationNextULRSelector: ".gallery__image-wrapper .next-btn",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: ".gallery__content",
+                sectionToBeRemovedSelector: ".next-btn, .prev-btn, .gallery__header",
+                navigationPageNumberSelector: ".gallery__header .gallery-nr",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, .social-box",
+                customStyle: {'.imageContainerEliminatorSlajdow': 'margin-top:20px'},
+                hasSlideNumbers: true,
+                pageType: "30",
+                regressionUrls: ["http://www.biztok.pl/tech/cocacola-zainwestowala-pod-warszawa-zobacz_g16382"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: "",
+                name: "se.pl",
+                articleBodySelector: "",
+                navigationNextULRSelector: "",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: "",
+                sectionToBeRemovedSelector: "",
+                navigationPageNumberSelector: "",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                customStyle: {},
+                hasSlideNumbers: true,
+                pageType: "22",
+                regressionUrls: [],
+                preIncludeCallback: function () {
+
                 }
             }
+
         ],
-        spinner: null,
+        spinner: $("<div>", {"class": "eliminatorSlajdowSpinner"}).append($("<i>", {class: 'icon-spin3 animate-spin'})),
         imageContainer: null,
         _start: function () {
             $("head").append($("<link>", {href: this.options.cssPath, type: "text/css", rel: "stylesheet"}));
@@ -317,10 +517,10 @@
             if ($(this.pageOptions.sectionToBeAttached).width() > 620) {
                 $("#content_wrap").find("#columns_wrap #col_right").css("cssText", "float:none; position: inherit !important;");
             }
-            var nextPageURL = $(this.pageOptions.navigationNextULRSelector).attr("href");
-            this._logger("link do nastepnej storny", nextPageURL, this.pageOptions.navigationNextULRSelector);
+            this.nextPageURL = $(this.pageOptions.navigationNextULRSelector).attr("href");
+            this._logger("link do nastepnej storny", this.nextPageURL, this.pageOptions.navigationNextULRSelector);
             this.pageOptions.preIncludeCallback.call(this);
-            if (nextPageURL) {
+            if (this.nextPageURL) {
                 this._tracking("ES_start", this.pageOptions.pageType);
                 $(this.pageOptions.sectionToBeEmptySelector).empty();
                 $(this.pageOptions.sectionToBeRemovedSelector).remove();
@@ -328,10 +528,58 @@
                 this._bind();
                 this._showSpinnier();
                 this.pageOptions.visitedSlideURLs.push(document.location.pathname + document.location.search);
-                this._requestNextSlide(nextPageURL);
+                this._requestNextSlide(this.nextPageURL);
             } else {
                 this._logger("Brak slajdow. Galeria typu " + this.pageOptions.pageType);
             }
+        },
+        _buildHeader: function (pageNumberLabel, pageNumber, url) {
+            return $("<div>", {
+                "class": "slideHeader slideHeader_" + pageNumber
+            }).append($("<p>", {
+                    "class": "headerBar shadow"
+                }).append($("<span>", {
+                        "class": "pageNumber",
+                        text: pageNumberLabel
+                    })).append($("<span>", {
+                        "class": "esLogo",
+                        style: "background:url('" + this.options.imageBaseUrl + this.options.esLogoUrl + "') no-repeat 0 0 /16px"
+                    })).append($("<i>", {
+                        "class": "scrollSwitch icon-resize-vertical " + (this.options.scrollableImageContainer ? "esIconEnabled" : "esIconDisabled"),
+                        title: "Pasek przewijania"
+                    })).append(
+                        $("<i>", {
+                            "class": "icon-bug",
+                            title: "Zgłoś problem"
+                        })).append(
+                        $("<span>", {
+                            "class": "directLink"
+                        }).append($("<a>", {
+                                target: "_blank",
+                                href: this._appendDisableEsFlag(url),
+                                title: "Bezpośredni link"
+                            }).append($("<i>", {"class": 'icon-link-ext'}))
+
+                            )).append(
+                        $("<i>", {
+                            "class": "icon-right-circle",
+                            title: "Następny Slajd"
+                        })).append(
+                        $("<i>", {
+                            "class": "icon-left-circle",
+                            title: "Poprzedni Slajd"
+                        })).append(
+                        $("<i>", {
+                            "class": "icon-up-circle",
+                            title: "Pierwszy Slajd"
+                        })).append(
+                        $("<i>", {
+                            "class": "icon-down-circle",
+                            title: "Ostatni Slajd"
+                        }))).append($("<p>", {
+                    "class": "headerLogo",
+                    text: 'Eliminator Slajdów'
+                }).append($("<i>", {"class": 'icon-facebook-squared'})))
         },
         _appendNextSlide: function (galleryPage, url) {
             var that = this;
@@ -339,9 +587,9 @@
             var articleSection = $(galleryPage).find(this.pageOptions.sectionToBeAttached);
             if ($(articleSection).length > 0) {
 
-                var nextPageURL = $(galleryPage).find(this.pageOptions.navigationNextULRSelector).attr("href");
-                if (typeof url === "undefined" || url === nextPageURL || $.inArray(url, this.pageOptions.visitedSlideURLs) > -1) {
-                    this._logger("Chyba cos jest zle. URL do nastepnego slajdu zostal juz dodany do listy lub jest UNDEFINED:/", url, nextPageURL);
+                this.nextPageURL = $(galleryPage).find(this.pageOptions.navigationNextULRSelector).attr("href");
+                if (typeof url === "undefined" || url === this.nextPageURL || $.inArray(url, this.pageOptions.visitedSlideURLs) > -1) {
+                    this._logger("Chyba cos jest zle. URL do nastepnego slajdu zostal juz dodany do listy lub jest UNDEFINED:/", url, this.nextPageURL);
                     return;
                 }
                 var pageNumber = $(galleryPage).find(this.pageOptions.navigationPageNumberSelector).text().match(/(\d+)/g);
@@ -355,42 +603,7 @@
                     pageNumberLabel = "Slajd";
                 }
 
-                var slideHeader = $("<div>", {
-                    "class": "slideHeader slideHeader_" + pageNumber
-                }).append($("<p>", {
-                        "class": "headerBar"                        
-                    }).append($("<span>", {
-                            "class": "pageNumber",
-                            text: pageNumberLabel                            
-                        })).append($("<span>", {
-                            "class": "esLogo",
-                            style: "background:url('" + this.options.esLogoUrl + "') no-repeat 0 0 /16px"
-                        })).append($("<span>", {
-                            "class": "scrollSwitch",
-                            text: ((this.scrollableImageContainer ? "Ukryj pasek przewijania" : "Pokaż pasek przewijania"))
-                        })).append($("<span>", {
-                            "class": "headerSeparator",
-                            text: "|"
-                        })).append(
-                            $("<span>", {
-                                "class": "bugreport",
-                                text: "Zgłoś problem"
-                            })).append(
-                            $("<span>", {
-                                "class": "headerSeparator",
-                                text: "|"
-                            })).append(
-                            $("<span>", {
-                                "class": "directLink"
-                            }).append($("<a>", {
-                                    target: "_blank",
-                                    href: this._appendDisableEsFlag(url),
-                                    text: "Bezpośredni link"
-                                })))).append($("<p>", {
-                        "class": "headerLogo",
-                        text: 'Eliminator Slajdów',
-                        style: "background:url('" + this.options.facebookIconUrl + "') no-repeat 0 1px /10px"
-                    }));
+                var slideHeader = this._buildHeader(pageNumberLabel, pageNumber, url);
 
                 $(this.imageContainer).append(slideHeader);
 
@@ -430,21 +643,21 @@
                     $("." + this.pageOptions.classesToBeRemoved[i]).removeClass(this.pageOptions.classesToBeRemoved[i]);
                 }
 
-                // FIXME:
-                if (this.imageContainer.width() > 950 && this.pageOptions.pageType !== "8" && this.pageOptions.pageType !== "12") {
-                    this.imageContainer.width(950);
-                }
+//                // FIXME:
+//                if (this.imageContainer.width() > 950 && this.pageOptions.pageType !== "8" && this.pageOptions.pageType !== "12") {
+//                    this.imageContainer.width(950);
+//                }
 
                 this.pageOptions.visitedSlideURLs.push(url);
 
                 this.pageOptions.preIncludeCallback.call(this);
 
-                if ((pageNumber && pageNumber.length === 2 && pageNumber[0] !== pageNumber[1]) || (!this.pageOptions.hasSlideNumbers && document.location.href.indexOf(nextPageURL) === -1)) {
-                    this._logger("link do nastepnej storny", nextPageURL);
+                if ((pageNumber && pageNumber.length === 2 && pageNumber[0] !== pageNumber[1]) || (!this.pageOptions.hasSlideNumbers && document.location.href.indexOf(this.nextPageURL) === -1)) {
+                    this._logger("link do nastepnej storny", this.nextPageURL);
                     this._showSpinnier();
-                    this._requestNextSlide(nextPageURL);
+                    this._requestNextSlide(this.nextPageURL);
                 } else {
-                    this._logger("Ostatnia Strona");
+                    this._logger("Ostatni Slajd");
                     this._hideSpinner();
                 }
 
@@ -482,18 +695,17 @@
         _bind: function () {
             var that = this;
             var imageContainer = $("div.imageContainerEliminatorSlajdow");
-            imageContainer.on("click", "span.scrollSwitch", function () {
+            imageContainer.on("click", "i.icon-resize-vertical", function () {
+                var currentOffset = $(this)[0].getBoundingClientRect().bottom - $(this)[0].getBoundingClientRect().height;
                 imageContainer.toggleClass("noScroll").toggleClass("scroll");
                 if (that.options.scrollableImageContainer) {
                     that._logger("scroll switch OFF");
-                    imageContainer.find("span.scrollSwitch").text("Pokaż pasek przewijania");
                     $('html, body').animate({
-                        scrollTop: $(this).offset().top - 30
+                        scrollTop: $(this).offset().top - currentOffset
                     }, 500);
                     that.options.scrollableImageContainer = false;
                 } else {
                     that._logger("scroll switch ON");
-                    imageContainer.find("span.scrollSwitch").text("Ukryj pasek przewijania");
                     $('html, body').animate({
                         scrollTop: $(".imageContainerEliminatorSlajdow").offset().top - 25
                     }, 500);
@@ -501,15 +713,15 @@
                         scrollTop: 0
                     }, 0);
                     imageContainer.animate({
-                        scrollTop: $(this).offset().top - imageContainer.offset().top - 5
+                        scrollTop: $(this).offset().top - imageContainer.offset().top - currentOffset + 25
                     }, 500);
                     that.options.scrollableImageContainer = true;
                 }
-
+                imageContainer.find("i.icon-resize-vertical").toggleClass("esIconEnabled").toggleClass("esIconDisabled");
                 that._tracking("scroll_ui", that.options.scrollableImageContainer ? "ON" : "OFF");
             });
 
-            imageContainer.on("click", "span.bugreport", function () {
+            imageContainer.on("click", "i.icon-bug", function () {
                 window.open(that.options.bugReportUrl);
                 that._tracking("bug_report_ui", "click");
             });
@@ -522,10 +734,58 @@
             imageContainer.on("click", "span.directLink a", function () {
                 that._tracking("direct_link_ui", "click");
             });
+
+            imageContainer.on("click", "i.icon-up-circle", function () {
+                $("body,html").animate({
+                    scrollTop: 0
+                }, 500);
+                that._tracking("go_top_link", "click");
+            });
+
+            imageContainer.on("click", "i.icon-down-circle", function () {
+                $("body,html").animate({
+                    scrollTop: imageContainer.offset().top + imageContainer.height() - 50
+                }, 500);
+                that._tracking("go_end_link", "click");
+            });
+
+            imageContainer.on("click", "i.icon-right-circle", function () {
+                if (that.options.scrollableImageContainer) {
+                    // maybe will implement it one day
+                } else {
+                    var offset = imageContainer.offset().top + imageContainer.height() - 50;
+                    var thisSlide = $(this).parent().parent();
+                    if (thisSlide.next().length > 0 && thisSlide.next().next().length > 0) {
+                        offset = thisSlide.next().next().offset().top - thisSlide[0].getBoundingClientRect().bottom - thisSlide[0].getBoundingClientRect().height + 62;
+                    }
+                    $("body,html").animate({
+                        scrollTop: offset
+                    }, 500);
+                }
+                that._tracking("go_next_link", "click");
+            });
+
+            imageContainer.on("click", "i.icon-left-circle", function () {
+                if (that.options.scrollableImageContainer) {
+                    // maybe will implement it one day
+                } else {
+                    var offset = 0;
+                    var thisSlide = $(this).parent().parent();
+                    if (thisSlide.prev().length > 0) {
+                        offset = thisSlide.prev().prev().offset().top - thisSlide[0].getBoundingClientRect().bottom - thisSlide[0].getBoundingClientRect().height + 62;
+                    }
+                    $("body,html").animate({
+                        scrollTop: offset
+                    }, 500);
+
+                }
+                that._tracking("go_prev_link", "click");
+            });
+
+
         },
         _create: function (customOptions) {
             $.extend(true, this, this, customOptions);
-            this.spinner = $("<div>", {"class": "eliminatorSlajdowSpinner"}).append($("<img>", {src: this.options.spinningIconUrl}));
             for (var i in this.pages) {
                 if ($(this.pages[i].trigger).length > 0) {
                     $.extend(true, this.pageOptions, this.pageOptions, this.pages[i]);
@@ -564,22 +824,38 @@
             }
         },
         regression: function () {
-            var setTimeoutFunction = function(urlToOpen, pi) {
-                setTimeout(function(){                
-                    window.open(urlToOpen);
-                 } , 20000 * (pi));                    
+            var setTimeoutFunction = function (urlToOpen, pi) {
+                console.log("url", urlToOpen);
+                var delay = 10 * 1000 * pi;
+                console.log("delay", delay);
+                setTimeout(function () {
+                    window.open(urlToOpen, '_blank');
+                }, delay);
             }
 
-            for (var pi in  this.pages) {
-                var page = this.pages[pi];
-                var urls = page.regressionUrls;
-                for (var index in urls) {
-                    $("body").append("<a href=' " + urls[index] + "'>" + page.pageType + " -- " + page.name + " -- " + urls[index] + "</a><br />");                
-                    var urlToOpen = urls[index] + '#TYPE_' + page.pageType;
-                    setTimeoutFunction(urlToOpen, pi);
+            var self = this;
+
+            $("#start").click(function () {
+                console.log("Start button");
+                var counter = 1;
+                for (var pi in  self.pages) {
+                    var page = self.pages[pi];
+                    var urls = page.regressionUrls;
+                    for (var index in urls) {
+                        $("body").append("<a href=' " + urls[index] + "'>" + page.pageType + " -- " + page.name + " -- " + urls[index] + "</a><br />");
+                        var urlToOpen = urls[index] + '#TYPE_' + page.pageType;
+                        setTimeoutFunction(urlToOpen, counter);
+                        counter = counter + 1;
+                    }
                 }
-            }
+            });
 
+            this.pageOptions.sectionToBeAttached = "#toBeAttached";
+            this.pageOptions.articleBodySelector = "#articleBodySelector"
+            this._createImageContainer();
+            this._appendNextSlide("body", "regression");
+            this._create();
+            this._showSpinnier();
         },
         _tracking: function (category, action, comment) {
             if ($.isFunction(this.options.trackingCallback)) {

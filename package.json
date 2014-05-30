@@ -1,13 +1,6 @@
 {"license": "",
     "preferences": [
         {
-            "title": "Pasek przewijania",
-            "type": "bool",
-            "name": "scrollableImageContainer",
-            "value": false,
-            "description": "Zawsze pokazuj slajdy z paskiem przewijania?"
-        },
-        {
             "type": "bool",
             "name": "autotrader.pl",
             "value": true,
@@ -24,6 +17,12 @@
             "name": "avanti24.pl",
             "value": true,
             "title": "www.avanti24.pl"
+        },
+        {
+            "type": "bool",
+            "name": "biztok.pl",
+            "value": true,
+            "title": "www.biztok.pl"
         },
         {
             "type": "bool",
@@ -45,6 +44,12 @@
         },
         {
             "type": "bool",
+            "name": "demotywatory.pl",
+            "value": true,
+            "title": "www.demotywatory.pl"
+        },
+        {
+            "type": "bool",
             "name": "deser.pl",
             "value": true,
             "title": "www.deser.pl"
@@ -54,7 +59,7 @@
             "name": "domiporta.pl",
             "value": true,
             "title": "www.domiporta.pl"
-        },        
+        },
         {
             "type": "bool",
             "name": "domiwnetrze.pl",
@@ -72,13 +77,14 @@
             "name": "dziennikbaltycki.pl",
             "value": true,
             "title": "www.dziennikbaltycki.pl"
-        },      
+        },
         {
             "type": "bool",
             "name": "dziennikpolski24.pl",
             "value": true,
             "title": "www.dziennikpolski24.pl"
-        },          {
+        },
+        {
             "type": "bool",
             "name": "dzienniklodzki.pl",
             "value": true,
@@ -95,7 +101,7 @@
             "name": "dziennikzachodni.pl",
             "value": true,
             "title": "www.dziennikzachodni.pl"
-        },         
+        },
         {
             "type": "bool",
             "name": "echodnia.eu",
@@ -125,6 +131,12 @@
             "name": "e-ogrody.pl",
             "value": true,
             "title": "www.e-ogrody.pl"
+        },
+        {
+            "type": "bool",
+            "name": "fakt.pl",
+            "value": true,
+            "title": "www.fakt.pl"
         },
         {
             "type": "bool",
@@ -179,7 +191,7 @@
             "name": "gloswielkopolski.pl",
             "value": true,
             "title": "www.gloswielkopolski.pl"
-        },        
+        },
         {
             "type": "bool",
             "name": "gp24.pl",
@@ -209,13 +221,13 @@
             "name": "kurierlubelski.pl",
             "value": true,
             "title": "www.kurierlubelski.pl"
-        },        
+        },
         {
             "type": "bool",
             "name": "kwejk.pl",
             "value": true,
             "title": "www.kwejk.pl"
-        },        
+        },
         {
             "type": "bool",
             "name": "ladnydom.pl",
@@ -332,6 +344,12 @@
         },
         {
             "type": "bool",
+            "name": "naszemiasto.pl",
+            "value": true,
+            "title": "www.naszemiasto.pl"
+        },
+        {
+            "type": "bool",
             "name": "namonciaku.pl",
             "value": true,
             "title": "www.namonciaku.pl"
@@ -360,7 +378,6 @@
             "value": true,
             "title": "poranny.pl"
         },
-
         {
             "type": "bool",
             "name": "plotek.pl",
@@ -399,9 +416,15 @@
         },
         {
             "type": "bool",
-            "name": "sport.pl",
+            "name": "sfora.pl",
             "value": true,
-            "title": "www.sport.pl"
+            "title": "www.sfora.pl"
+        },
+        {
+            "type": "bool",
+            "name": "www.se.pl",
+            "value": true,
+            "title": "www.se.pl"
         },
         {
             "type": "bool",
@@ -442,10 +465,16 @@
         },
         {
             "type": "bool",
+            "name": "wawalove.pl",
+            "value": true,
+            "title": "www.wawalove.pl"
+        },
+        {
+            "type": "bool",
             "name": "wspolczesna.pl",
             "value": true,
             "title": "www.wspolczesna.pl"
-        },        
+        },
         {
             "type": "bool",
             "name": "wyborcza.biz",
@@ -477,7 +506,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "3.0.4",
+    "version": "3.0.6",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",

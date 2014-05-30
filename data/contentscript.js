@@ -3,10 +3,7 @@
         $.each(config.storage, function (allowedHost, enabled) {
             if (window.frameElement === null && enabled && window.location.hostname.indexOf(allowedHost) != -1 && document.location.href.toLowerCase().indexOf("es=off") === -1) {
                 $("body").eliminatorSlajdow({
-                    scrollableImageContainer: (config.storage.scrollableImageContainer === "on"),
-                    spinningIconUrl: config.spinnerImgUrl,
-                    facebookIconUrl: config.facebookIconUrl,
-                    esLogoUrl: config.esLogoUrl,
+                    imageBaseUrl: config.imageBaseUrl,
                     cssPath: config.cssUrl,
                     facebookUrl: "https://www.facebook.com/eliminator-slajdow?ref=ff.extension",
                     bugReportUrl: "https://eliminator-slajdow.sugester.pl/?ref=ff.extension",
