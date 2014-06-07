@@ -74,6 +74,12 @@
         },
         {
             "type": "bool",
+            "name": "dziennik.pl",
+            "value": true,
+            "title": "www.dziennik.pl"
+        },
+        {
+            "type": "bool",
             "name": "dziennikbaltycki.pl",
             "value": true,
             "title": "www.dziennikbaltycki.pl"
@@ -137,6 +143,12 @@
             "name": "fakt.pl",
             "value": true,
             "title": "www.fakt.pl"
+        },
+        {
+            "type": "bool",
+            "name": "forsal.pl",
+            "value": true,
+            "title": "www.forsal.pl"
         },
         {
             "type": "bool",
@@ -209,6 +221,18 @@
             "name": "gs24.pl",
             "value": true,
             "title": "www.gs24.pl"
+        },
+        {
+            "type": "bool",
+            "name": "jegostrona.pl",
+            "value": true,
+            "title": "www.jegostrona.pl"
+        },
+        {
+            "type": "bool",
+            "name": "komputerswiat.pl",
+            "value": true,
+            "title": "www.komputerswiat.pl"
         },
         {
             "type": "bool",
@@ -422,6 +446,12 @@
         },
         {
             "type": "bool",
+            "name": "sport.pl",
+            "value": true,
+            "title": "www.sport.pl"
+        },
+        {
+            "type": "bool",
             "name": "www.se.pl",
             "value": true,
             "title": "www.se.pl"
@@ -506,7 +536,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "3.0.7",
+    "version": "3.0.8",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",

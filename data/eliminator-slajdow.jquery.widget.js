@@ -39,7 +39,7 @@
                 customStyle: {"#col_left": "width:auto", "#columns_wrap": "background:none",
                     ".path_duzy_kadr .imageContainerEliminatorSlajdow p.headerLogo, .path_duzy_kadr .slideTitle": "color: white"},
                 preIncludeCallback: function () {
-                    $("#col_left").width($("#gazeta_article_image div a img").width());
+                    $("#col_left").width($("#gazeta_article_image").find("div a img").width());
                 }
             },
             {   trigger: "body#pagetype_art_blog",
@@ -159,7 +159,7 @@
                 pageType: "11",
                 articleBodySelector: "div#photo div.photo-item",
                 sectionToBeEmptySelector: "script",
-                sectionToBeRemovedSelector: "div.photoElem a",
+                sectionToBeRemovedSelector: "div.photoElem a, .top-slider",
                 navigationNextULRSelector: "div#main-column div#photo.common-box div.inner div.photo-item div.photoElem a.next",
                 navigationPageNumberSelector: "div#photo.common-box div.top-slider div.slider",
                 sectionToBeAttached: "div.photo-item",
@@ -489,22 +489,85 @@
 
                 }
             },
-            {   trigger: "",
-                name: "test template",
-                articleBodySelector: "",
-                navigationNextULRSelector: "",
+            {   trigger: "#ks_doc #ks_bd_left_col #ks_simple_pagging",
+                name: "komputerswiat.pl",
+                articleBodySelector: "#ks_bd_cols",
+                navigationNextULRSelector: "#gallery_image a.next",
+                sectionToBeAttached: "#ks_bd_cols",
+                sectionToBeRemovedSelector: "#ks_simple_pagging, #ks_bd_right_col div.next, #gallery_image .next",
+                navigationPageNumberSelector: "#ks_simple_pagging .numbers",
+                sectionToBeRemovedFromAttachedSlidesSelector: "#comments, script, .Nextclick_Widget_Container, #comment_form, #ks_bd_right_col div.next, #gallery_image .next, #gallery_image .prev",
+                customStyle: {'#gallery #ks_bd': 'float:left', '.imageContainerEliminatorSlajdow': 'margin-top:20px', ".comments": "width:720px"},
+                hasSlideNumbers: true,
+                pageType: "31",
+                regressionUrls: ["http://www.komputerswiat.pl/artykuly/redakcyjne/2014/05/komputery-apple-jakich-nie-widzieliscie-niezwykle-prototypy-z-lat-80.aspx"],
+                preIncludeCallback: function () {
+                    $("#ks_bd_left_col .Nextclick_Widget_Container, #ks_bd_left_col #comment_form, #ks_bd_left_col #comments").insertAfter(".imageContainerEliminatorSlajdow");
+                }
+            },
+            {   trigger: "body#screening #mainContainer #gallery .gallery_body .gallery_photo_desc_right",
+                name: "dziennik.pl",
+                articleBodySelector: ".gallery_body",
+                navigationNextULRSelector: ".gallery_photo_desc_right .nastepne:first",
                 sectionToBeEmptySelector: "",
-                sectionToBeAttached: "",
-                sectionToBeRemovedSelector: "",
-                navigationPageNumberSelector: "",
+                sectionToBeAttached: ".gallery_body",
+                sectionToBeRemovedSelector: ".belka-spol, .cl_right, .gallery_list_photos_header, .gallery_photo_desc_right, .gallery_list_photos, .art_data_tags, .belka-spol-bottom",
+                navigationPageNumberSelector: ".gallery_photo_desc_right p:first",
                 sectionToBeRemovedFromAttachedSlidesSelector: "script",
                 customStyle: {},
                 hasSlideNumbers: true,
-                pageType: "31",
+                pageType: "32",
+                regressionUrls: ["http://auto.dziennik.pl/aktualnosci/galeria/460807,1,samochod-obamy-limuzyna-prezydenta-usa-zdjecia-galeria-zdjec.html"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   trigger: "#miejsce2 .galeriaBig.forsalOnly .photoBg .next",
+                name: "forsal.pl",
+                articleBodySelector: ".tpl_sgp_galeria_artykulowa",
+                navigationNextULRSelector: ".galeriaBig.forsalOnly .photoBg .next",
+                sectionToBeAttached: ".tpl_sgp_galeria_artykulowa",
+                sectionToBeRemovedSelector: ".photoBg .hoverPhoto, .photoBg .next, .photoBg .prev, .nextPrev ul",
+                navigationPageNumberSelector: ".nextPrev",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, .dateArt, .leadArt, .lead, .galeriaBig.forsalOnly > h2",
+                customStyle: {'.imageContainerEliminatorSlajdow': 'margin-top:20px'},
+                hasSlideNumbers: true,
+                pageType: "33",
                 regressionUrls: [],
                 preIncludeCallback: function () {
 
                 }
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "",
+                /* index */
+                pageType: "31",
+                /* nazwa galerii */
+                name: "",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: "",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: "",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                /* naglowek slajdu */
+                headerSectionSelector: "",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* callback uruchamiany przed dolaczeniem kazdgo slajdu do strony */
+                preIncludeCallback: function () {
+                },
+                classesToBeRemoved: [],
+                regressionUrls: []
             }
 
         ],
@@ -513,10 +576,6 @@
         _start: function () {
             $("head").append($("<link>", {href: this.options.cssPath, type: "text/css", rel: "stylesheet"}));
             $("body").addClass("eliminatorSlajdow");
-            // FIXME
-            if ($(this.pageOptions.sectionToBeAttached).width() > 620) {
-                $("#content_wrap").find("#columns_wrap #col_right").css("cssText", "float:none; position: inherit !important;");
-            }
             this.nextPageURL = $(this.pageOptions.navigationNextULRSelector).attr("href");
             this._logger("link do nastepnej storny", this.nextPageURL, this.pageOptions.navigationNextULRSelector);
             this.pageOptions.preIncludeCallback.call(this);
@@ -531,6 +590,7 @@
                 this._requestNextSlide(this.nextPageURL);
             } else {
                 this._logger("Brak slajdow. Galeria typu " + this.pageOptions.pageType);
+                this._tracking("ES_error_no_slides", this.pageOptions.pageType, document.location.pathname + document.location.search);
             }
         },
         _buildHeader: function (pageNumberLabel, pageNumber, url) {
@@ -635,18 +695,16 @@
                     }
                     elements.each(function () {
                         var current = $(this).attr("style") ? $(this).attr("style") + ";" : "";
-                        $(this).attr("style", current + that.pageOptions.customStyle[selector]);
+                        var newStyle = that.pageOptions.customStyle[selector];
+                        if (current.indexOf(newStyle) === -1) {
+                            $(this).attr("style", current + newStyle);
+                        }
                     });
                 }
 
                 for (var i in this.pageOptions.classesToBeRemoved) {
                     $("." + this.pageOptions.classesToBeRemoved[i]).removeClass(this.pageOptions.classesToBeRemoved[i]);
                 }
-
-//                // FIXME:
-//                if (this.imageContainer.width() > 950 && this.pageOptions.pageType !== "8" && this.pageOptions.pageType !== "12") {
-//                    this.imageContainer.width(950);
-//                }
 
                 this.pageOptions.visitedSlideURLs.push(url);
 
@@ -688,7 +746,7 @@
                 }
             }).fail(function () {
                     this._tracking("ES_error", this.pageOptions.pageType, nextPageURL);
-                    console.log("ES - Blad pobierania nastepnego slajud: " + nextPageURL);
+                    console.log("ES - Blad pobierania nastepnego slajdu: " + nextPageURL);
                     that._hideSpinner();
                 });
         },
@@ -834,24 +892,28 @@
             }
 
             var self = this;
+            var allRegressionUrls = new Array();
+            var index = 0;
+            var max = 5;
+            for (var pi in  self.pages) {
+                if (this.pages[pi].regressionUrls.length > 0)
+                    allRegressionUrls.push(this.pages[pi].regressionUrls);
+            }
 
             $("#start").click(function () {
                 console.log("Start button");
-                var counter = 1;
-                for (var pi in  self.pages) {
-                    var page = self.pages[pi];
-                    var urls = page.regressionUrls;
-                    for (var index in urls) {
-                        $("body").append("<a href=' " + urls[index] + "'>" + page.pageType + " -- " + page.name + " -- " + urls[index] + "</a><br />");
-                        var urlToOpen = urls[index] + '#TYPE_' + page.pageType;
-                        setTimeoutFunction(urlToOpen, counter);
-                        counter = counter + 1;
-                    }
-                }
+                do {
+                    $("body").append("<a href=' " + allRegressionUrls[index] + "'>" +
+                        allRegressionUrls[index] + "</a><br />");
+                    var urlToOpen = allRegressionUrls[index];
+                    setTimeoutFunction(urlToOpen, 0);
+                    index++;
+                } while (index < max && index < allRegressionUrls.length)
+                max = max + index;
             });
 
             this.pageOptions.sectionToBeAttached = "#toBeAttached";
-            this.pageOptions.articleBodySelector = "#articleBodySelector"
+            this.pageOptions.articleBodySelector = "#articleBodySelector";
             this._createImageContainer();
             this._appendNextSlide("body", "regression");
             this._create();
