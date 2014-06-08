@@ -200,12 +200,6 @@
         },
         {
             "type": "bool",
-            "name": "gazetapraca.pl",
-            "value": true,
-            "title": "www.gazetapraca.pl"
-        },
-        {
-            "type": "bool",
             "name": "gazetawroclawska.pl",
             "value": true,
             "title": "www.gazetawroclawska.pl"
@@ -575,12 +569,6 @@
             "name": "wyborcza.biz",
             "value": true,
             "title": "www.wyborcza.biz"
-        },
-        {
-            "type": "bool",
-            "name": "wyborcza.pl",
-            "value": true,
-            "title": "www.wyborcza.pl"
         },
         {
             "type": "bool",
