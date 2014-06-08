@@ -2,15 +2,21 @@
     "preferences": [
         {
             "type": "bool",
-            "name": "autotrader.pl",
-            "value": true,
-            "title": "www.autotrader.pl"
-        },
-        {
-            "type": "bool",
             "name": "alert24.pl",
             "value": true,
             "title": "www.alert24.pl"
+        },
+        {
+            "type": "bool",
+            "name": "auto-swiat.pl",
+            "value": true,
+            "title": "www.auto-swiat.pl"
+        },
+        {
+            "type": "bool",
+            "name": "autotrader.pl",
+            "value": true,
+            "title": "www.autotrader.pl"
         },
         {
             "type": "bool",
@@ -20,9 +26,27 @@
         },
         {
             "type": "bool",
+            "name": "bebzol.com",
+            "value": true,
+            "title": "www.bebzol.com"
+        },
+        {
+            "type": "bool",
+            "name": "biznes.pl",
+            "value": true,
+            "title": "www.biznes.pl"
+        },
+        {
+            "type": "bool",
             "name": "biztok.pl",
             "value": true,
             "title": "www.biztok.pl"
+        },
+        {
+            "type": "bool",
+            "name": "bryla.gazetadom.pl",
+            "value": true,
+            "title": "www.bryla.gazetadom.pl"
         },
         {
             "type": "bool",
@@ -56,12 +80,6 @@
         },
         {
             "type": "bool",
-            "name": "domiporta.pl",
-            "value": true,
-            "title": "www.domiporta.pl"
-        },
-        {
-            "type": "bool",
             "name": "domiwnetrze.pl",
             "value": true,
             "title": "www.domiwnetrze.pl"
@@ -86,15 +104,15 @@
         },
         {
             "type": "bool",
-            "name": "dziennikpolski24.pl",
-            "value": true,
-            "title": "www.dziennikpolski24.pl"
-        },
-        {
-            "type": "bool",
             "name": "dzienniklodzki.pl",
             "value": true,
             "title": "www.dzienniklodzki.pl"
+        },
+        {
+            "type": "bool",
+            "name": "dziennikpolski24.pl",
+            "value": true,
+            "title": "www.dziennikpolski24.pl"
         },
         {
             "type": "bool",
@@ -110,15 +128,15 @@
         },
         {
             "type": "bool",
-            "name": "echodnia.eu",
+            "name": "e-ogrody.pl",
             "value": true,
-            "title": "www.echodnia.eu"
+            "title": "www.e-ogrody.pl"
         },
         {
             "type": "bool",
-            "name": "edulandia.pl",
+            "name": "echodnia.eu",
             "value": true,
-            "title": "www.edulandia.pl"
+            "title": "www.echodnia.eu"
         },
         {
             "type": "bool",
@@ -134,27 +152,21 @@
         },
         {
             "type": "bool",
-            "name": "e-ogrody.pl",
-            "value": true,
-            "title": "www.e-ogrody.pl"
-        },
-        {
-            "type": "bool",
             "name": "fakt.pl",
             "value": true,
             "title": "www.fakt.pl"
         },
         {
             "type": "bool",
-            "name": "forsal.pl",
-            "value": true,
-            "title": "www.forsal.pl"
-        },
-        {
-            "type": "bool",
             "name": "foch.pl",
             "value": true,
             "title": "www.foch.pl"
+        },
+        {
+            "type": "bool",
+            "name": "forsal.pl",
+            "value": true,
+            "title": "www.forsal.pl"
         },
         {
             "type": "bool",
@@ -179,6 +191,12 @@
             "name": "gazetalubuska.pl",
             "value": true,
             "title": "www.gazetalubuska.pl"
+        },
+        {
+            "type": "bool",
+            "name": "gazetapraca.pl",
+            "value": true,
+            "title": "www.gazetapraca.pl"
         },
         {
             "type": "bool",
@@ -266,6 +284,12 @@
         },
         {
             "type": "bool",
+            "name": "lovekrakow.pl",
+            "value": true,
+            "title": "www.lovekrakow.pl"
+        },
+        {
+            "type": "bool",
             "name": "lula.pl",
             "value": true,
             "title": "www.lula.pl"
@@ -290,12 +314,6 @@
         },
         {
             "type": "bool",
-            "name": "mmwroclaw.pl",
-            "value": true,
-            "title": "www.mmwroclaw.pl"
-        },
-        {
-            "type": "bool",
             "name": "mmkrakow.pl",
             "value": true,
             "title": "www.mmkrakow.pl"
@@ -311,6 +329,18 @@
             "name": "mmlublin.pl",
             "value": true,
             "title": "www.mmlublin.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmmojemiasto.pl",
+            "value": true,
+            "title": "www.mmmojemiasto.pl"
+        },
+        {
+            "type": "bool",
+            "name": "mmopole.pl",
+            "value": true,
+            "title": "www.mmopole.pl"
         },
         {
             "type": "bool",
@@ -344,15 +374,9 @@
         },
         {
             "type": "bool",
-            "name": "mmmojemiasto.pl",
+            "name": "mmwroclaw.pl",
             "value": true,
-            "title": "www.mmmojemiasto.pl"
-        },
-        {
-            "type": "bool",
-            "name": "mmopole.pl",
-            "value": true,
-            "title": "www.mmopole.pl"
+            "title": "www.mmwroclaw.pl"
         },
         {
             "type": "bool",
@@ -368,15 +392,21 @@
         },
         {
             "type": "bool",
-            "name": "naszemiasto.pl",
+            "name": "motokiller.pl",
             "value": true,
-            "title": "www.naszemiasto.pl"
+            "title": "www.motokiller.pl"
         },
         {
             "type": "bool",
             "name": "namonciaku.pl",
             "value": true,
             "title": "www.namonciaku.pl"
+        },
+        {
+            "type": "bool",
+            "name": "naszemiasto.pl",
+            "value": true,
+            "title": "www.naszemiasto.pl"
         },
         {
             "type": "bool",
@@ -394,13 +424,7 @@
             "type": "bool",
             "name": "onet.pl",
             "value": true,
-            "title": "*.onet.pl"
-        },
-        {
-            "type": "bool",
-            "name": "poranny.pl",
-            "value": true,
-            "title": "poranny.pl"
+            "title": "www.onet.pl"
         },
         {
             "type": "bool",
@@ -434,9 +458,27 @@
         },
         {
             "type": "bool",
+            "name": "poranny.pl",
+            "value": true,
+            "title": "www.poranny.pl"
+        },
+        {
+            "type": "bool",
             "name": "pracawbiurze.pl",
             "value": true,
             "title": "www.pracawbiurze.pl"
+        },
+        {
+            "type": "bool",
+            "name": "przegladsportowy.pl",
+            "value": true,
+            "title": "www.przegladsportowy.pl"
+        },
+        {
+            "type": "bool",
+            "name": "pudelekx.pl",
+            "value": true,
+            "title": "www.pudelekx.pl"
         },
         {
             "type": "bool",
@@ -452,9 +494,15 @@
         },
         {
             "type": "bool",
-            "name": "www.se.pl",
+            "name": "sport.pl",
             "value": true,
-            "title": "www.se.pl"
+            "title": "www.sport.pl"
+        },
+        {
+            "type": "bool",
+            "name": "sportowefakty.pl",
+            "value": true,
+            "title": "www.sportowefakty.pl"
         },
         {
             "type": "bool",
@@ -464,17 +512,16 @@
         },
         {
             "type": "bool",
-            "name": "tokfm.pl",
-            "value": true,
-            "title": "www.tokfm.pl"
-        },
-        {
-            "type": "bool",
             "name": "to.com.pl",
             "value": true,
             "title": "www.to.com.pl"
         },
-
+        {
+            "type": "bool",
+            "name": "tokfm.pl",
+            "value": true,
+            "title": "www.tokfm.pl"
+        },
         {
             "type": "bool",
             "name": "tuba.pl",
@@ -489,9 +536,9 @@
         },
         {
             "type": "bool",
-            "name": "wp.pl",
+            "name": "urzadzamy.pl",
             "value": true,
-            "title": "www.wp.pl"
+            "title": "www.urzadzamy.pl"
         },
         {
             "type": "bool",
@@ -501,15 +548,45 @@
         },
         {
             "type": "bool",
+            "name": "wp.pl",
+            "value": true,
+            "title": "www.wp.pl"
+        },
+        {
+            "type": "bool",
+            "name": "wprzerwie.pl",
+            "value": true,
+            "title": "www.wprzerwie.pl"
+        },
+        {
+            "type": "bool",
             "name": "wspolczesna.pl",
             "value": true,
             "title": "www.wspolczesna.pl"
         },
         {
             "type": "bool",
+            "name": "www.edulandia.pl",
+            "value": true,
+            "title": "www.www.edulandia.pl"
+        },
+        {
+            "type": "bool",
+            "name": "www.se.pl",
+            "value": true,
+            "title": "www.www.se.pl"
+        },
+        {
+            "type": "bool",
             "name": "wyborcza.biz",
             "value": true,
             "title": "www.wyborcza.biz"
+        },
+        {
+            "type": "bool",
+            "name": "wyborcza.pl",
+            "value": true,
+            "title": "www.wyborcza.pl"
         },
         {
             "type": "bool",
