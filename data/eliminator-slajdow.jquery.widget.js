@@ -540,9 +540,221 @@
                 }
             },
             {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "#pagewrap #ARTICLE_GALLERY_TOP_1",
+                /* index */
+                pageType: "34",
+                /* nazwa galerii */
+                name: "przegladsportowy.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#pagewrap .rightColumn",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: ".leftColumn, .rightColumn",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".paginator a.next:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: false,
+                navigationPageNumberSelector: "",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".paginator",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, #ARTICLE_GALLERY_RIGHT_COLUMN_1, #ARTICLE_GALLERY_BOTTOM_1, .socialButtons",
+                /* dowolne style css w postaci mapy */
+                customStyle: {".sharebx": "float:left"},
+                /* naglowek slajdu */
+                headerSectionSelector: "",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* callback uruchamiany przed dolaczeniem kazdgo slajdu do strony */
+                preIncludeCallback: function () {
+                    $(".leftColumn #ARTICLE_GALLERY_BOTTOM_1").insertAfter(".imageContainerEliminatorSlajdow");
+                },
+                classesToBeRemoved: [],
+                regressionUrls: ["http://junior.przegladsportowy.pl/akademia-pilkarska-zaglebia-lubin-tak-trenuja-mlode-talenty,galeria,1,472568,12565.html"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: ".site .columns.columns-outer-double .box-gallery .gallery-image .gallery-controlls .gallery-image-zoom",
+                /* index */
+                pageType: "35",
+                /* nazwa galerii */
+                name: "sportowefakty.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#photo-start",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#photo-start",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".gallery-image-next:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".gallery-navigation:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".gallery-navigation, .gallery-controlls",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                /* naglowek slajdu */
+                headerSectionSelector: "",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* callback uruchamiany przed dolaczeniem kazdgo slajdu do strony */
+                preIncludeCallback: function () {
+                },
+                classesToBeRemoved: [],
+                regressionUrls: ["http://www.sportowefakty.pl/pilka-reczna/zdjecia/galeria/5411/polska-niemcy-2524/3-232928#photo-start"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "#page_wrap #page #content #content-inner .box-inner .img-cnt-wrap .news-content",
+                /* index */
+                pageType: "36",
+                /* nazwa galerii */
+                name: "bebzol.com",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: ".img-cnt-wrap",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: ".img-cnt-wrap",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "#handle-next:not(.next-gal):first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: false,
+                navigationPageNumberSelector: "",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".handle:not(.next-gal), .categ-list-cnt, .img-cnt div:first, .pluginConnectButton",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, .like-bar, .bbz-cm-box",
+                /* dowolne style css w postaci mapy */
+                customStyle: {'.imageContainerEliminatorSlajdow': 'margin-top:20px', '.like-bar': 'float:left;width:100%'},
+                /* naglowek slajdu */
+                headerSectionSelector: "",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* callback uruchamiany przed dolaczeniem kazdgo slajdu do strony */
+                preIncludeCallback: function () {
+                    $("html").addClass("eliminatorSlajdow");
+                },
+                classesToBeRemoved: [],
+                regressionUrls: ["http://bebzol.com/pl/koty-szykuja-sie-na-wojne.150870.html" ,
+                    "http://bebzol.com/pl/20-trudnosci-z-ktorymi-musza-zmagac-sie-wlasciciele-kotow.151053.html"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "#left_column.gallery .comments h2.section-title ",
+                /* index */
+                pageType: "37",
+                /* nazwa galerii */
+                name: "lovekrakow.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#content .container .clear:last",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#left_column, #right_column",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".photo-pagination a.next:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".photo-pagination:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".thumbnails, .photo-pagination",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, .comments, h1.title",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                /* naglowek slajdu */
+                headerSectionSelector: "",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* callback uruchamiany przed dolaczeniem kazdgo slajdu do strony */
+                preIncludeCallback: function () {
+                    $("#left_column .comments").insertAfter(".imageContainerEliminatorSlajdow");
+                },
+                classesToBeRemoved: [],
+                regressionUrls: ["http://lovekrakow.pl/galerie/zdjecie/id/27808"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "div#doc #body #trunk #main .k_galleryLarge .k_pagination",
+                /* index */
+                pageType: "38",
+                /* nazwa galerii */
+                name: "biznes.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#main .k_gallery",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: ".k_gallery",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".k_pagination .k_next a:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".k_pagination .thisFoto:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".k_pagination",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                /* naglowek slajdu */
+                headerSectionSelector: "",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* callback uruchamiany przed dolaczeniem kazdgo slajdu do strony */
+                preIncludeCallback: function () {
+                },
+                classesToBeRemoved: [],
+                regressionUrls: ["http://biznes.pl/wiadomosci/raporty/wzrost-pkb-w-latach-2008-2013,5610529,1,5610147,535,foto-detal.html",
+                    "http://biznes.pl/wiadomosci/kraj/jan-vincent-rostowski-gosciem-specjalnym-biznespl,5610578,0,foto-detal.html#photo16264113"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "div.wrapper div.site div.left_column div.article div.gallery_buttons div.next_btt a.next",
+                /* index */
+                pageType: "39",
+                /* nazwa galerii */
+                name: "urzadzamy.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: ".article .image_file",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: ".article .image_file",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "div.gallery_buttons div.next_btt a.next",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: false,
+                navigationPageNumberSelector: "",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".gallery_buttons, .box.gallery_img, .article .content",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://www.urzadzamy.pl/galeria/6668/bawialnia-z-sypialnia-funkcjonalny-pokoj-dla-dziewczynek/",
+                    "http://www.urzadzamy.pl/galeria/uzytkownik/3328/podswietlane-panele-crystal-led-w-azience/",
+                    "http://www.urzadzamy.pl/galeria/uzytkownik/2378/azienka-modern/"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "div.all div#page #item > div.item-content > a.arrow-next-big",
+                /* index */
+                pageType: "40",
+                /* nazwa galerii */
+                name: "pudelekx.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#item .item-content",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#item",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "div.item-content > a.arrow-next-big",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: false,
+                navigationPageNumberSelector: "",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".thumbs, .item-header .btn2, .arrow-next-big, .arrow-prev-big, .item-header",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, .tags, .item-options, .left",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: [""]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
                 trigger: "",
                 /* index */
-                pageType: "31",
+                pageType: "41",
                 /* nazwa galerii */
                 name: "",
                 /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
@@ -560,15 +772,9 @@
                 sectionToBeRemovedFromAttachedSlidesSelector: "script",
                 /* dowolne style css w postaci mapy */
                 customStyle: {},
-                /* naglowek slajdu */
-                headerSectionSelector: "",
-                /* $.empty() na elemencie*/
-                sectionToBeEmptySelector: "",
-                /* callback uruchamiany przed dolaczeniem kazdgo slajdu do strony */
                 preIncludeCallback: function () {
                 },
-                classesToBeRemoved: [],
-                regressionUrls: []
+                regressionUrls: [""]
             }
 
         ],
@@ -711,7 +917,9 @@
 
                 this.pageOptions.preIncludeCallback.call(this);
 
-                if ((pageNumber && pageNumber.length === 2 && pageNumber[0] !== pageNumber[1]) || (!this.pageOptions.hasSlideNumbers && document.location.href.indexOf(this.nextPageURL) === -1)) {
+                if (typeof this.nextPageURL !== 'undefined' && (
+                    (pageNumber && pageNumber.length === 2 && pageNumber[0] !== pageNumber[1]) ||
+                        (!this.pageOptions.hasSlideNumbers && document.location.href.indexOf(this.nextPageURL) === -1))) {
                     this._logger("link do nastepnej storny", this.nextPageURL);
                     this._showSpinnier();
                     this._requestNextSlide(this.nextPageURL);
@@ -738,6 +946,11 @@
         },
         _requestNextSlide: function (nextPageURL) {
             var that = this;
+            if (typeof nextPageURL === 'undefined') {
+                that._hideSpinner();
+                return
+            }
+            ;
             $.get(nextPageURL,function (nextPage) {
                 var redirectUrl = that._getPaywallRedirectUrl(nextPage);
                 if (redirectUrl) {
@@ -868,6 +1081,8 @@
         _appendDisableEsFlag: function (url) {
             if (url.indexOf("?") > -1) {
                 return url.replace("?", "?es=off&");
+            } else if (url.indexOf("#") > -1) {
+                return url.replace("#", "?es=off#");
             } else {
                 return url + "?es=off";
             }
@@ -897,7 +1112,7 @@
             var index = 0;
             var max = 5;
             for (var pi in  self.pages) {
-                for (var i in this.pages[pi].regressionUrls) {
+                for (var i in this.pages[self.pages.length - pi].regressionUrls) {
                     allRegressionUrls.push(this.pages[pi].regressionUrls[i]);
                 }
             }
