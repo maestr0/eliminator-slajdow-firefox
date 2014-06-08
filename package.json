@@ -494,12 +494,6 @@
         },
         {
             "type": "bool",
-            "name": "sport.pl",
-            "value": true,
-            "title": "www.sport.pl"
-        },
-        {
-            "type": "bool",
             "name": "sportowefakty.pl",
             "value": true,
             "title": "www.sportowefakty.pl"
@@ -568,13 +562,13 @@
             "type": "bool",
             "name": "www.edulandia.pl",
             "value": true,
-            "title": "www.www.edulandia.pl"
+            "title": "www.edulandia.pl"
         },
         {
             "type": "bool",
             "name": "www.se.pl",
             "value": true,
-            "title": "www.www.se.pl"
+            "title": "www.se.pl"
         },
         {
             "type": "bool",
