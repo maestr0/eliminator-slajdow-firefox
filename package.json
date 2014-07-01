@@ -482,6 +482,12 @@
         },
         {
             "type": "bool",
+            "name": "snobka.pl",
+            "value": true,
+            "title": "www.snobka.pl"
+        },
+        {
+            "type": "bool",
             "name": "sport.pl",
             "value": true,
             "title": "www.sport.pl"
@@ -595,7 +601,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "3.0.8",
+    "version": "3.0.13",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
