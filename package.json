@@ -140,6 +140,12 @@
         },
         {
             "type": "bool",
+            "name": "edulandia.pl",
+            "value": true,
+            "title": "www.edulandia.pl"
+        },
+        {
+            "type": "bool",
             "name": "edziecko.pl",
             "value": true,
             "title": "www.edziecko.pl"
@@ -158,15 +164,33 @@
         },
         {
             "type": "bool",
+            "name": "fly4free.pl",
+            "value": true,
+            "title": "www.fly4free.pl"
+        },
+        {
+            "type": "bool",
             "name": "foch.pl",
             "value": true,
             "title": "www.foch.pl"
         },
         {
             "type": "bool",
+            "name": "forbes.pl",
+            "value": true,
+            "title": "www.forbes.pl"
+        },
+        {
+            "type": "bool",
             "name": "forsal.pl",
             "value": true,
             "title": "www.forsal.pl"
+        },
+        {
+            "type": "bool",
+            "name": "gadzetomania.pl",
+            "value": true,
+            "title": "www.gadzetomania.pl"
         },
         {
             "type": "bool",
@@ -203,6 +227,12 @@
             "name": "gazetawroclawska.pl",
             "value": true,
             "title": "www.gazetawroclawska.pl"
+        },
+        {
+            "type": "bool",
+            "name": "geekweek.pl",
+            "value": true,
+            "title": "www.geekweek.pl"
         },
         {
             "type": "bool",
@@ -476,6 +506,12 @@
         },
         {
             "type": "bool",
+            "name": "regiomoto.pl",
+            "value": true,
+            "title": "www.regiomoto.pl"
+        },
+        {
+            "type": "bool",
             "name": "sfora.pl",
             "value": true,
             "title": "www.sfora.pl"
@@ -491,6 +527,12 @@
             "name": "sport.pl",
             "value": true,
             "title": "www.sport.pl"
+        },
+        {
+            "type": "bool",
+            "name": "sportfan.pl",
+            "value": true,
+            "title": "www.sportfan.pl"
         },
         {
             "type": "bool",
@@ -515,6 +557,12 @@
             "name": "tokfm.pl",
             "value": true,
             "title": "www.tokfm.pl"
+        },
+        {
+            "type": "bool",
+            "name": "trojmiasto.pl",
+            "value": true,
+            "title": "www.trojmiasto.pl"
         },
         {
             "type": "bool",
@@ -560,15 +608,9 @@
         },
         {
             "type": "bool",
-            "name": "www.edulandia.pl",
-            "value": true,
-            "title": "www.edulandia.pl"
-        },
-        {
-            "type": "bool",
             "name": "www.se.pl",
             "value": true,
-            "title": "www.se.pl"
+            "title": "www.www.se.pl"
         },
         {
             "type": "bool",
@@ -597,11 +639,11 @@
     ],
     "contributors": [],
     "author": "Paweł Raszewski",
-    "url": "",
+    "url": "https://www.facebook.com/eliminator.slajdow",
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "3.0.13",
+    "version": "3.1.0",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
