@@ -9,13 +9,9 @@
                     bugReportUrl: "https://eliminator-slajdow.sugester.pl/?ref=ff.extension",
                     trackingCallback: function (category, action) {
                         console.log("Tracking not implemented in FF");
-                    }
+                    },
+                    debug: document.location.href.indexOf("ES_DEBUG=1") > -1
                 });
-
-                /* hack dla FF */
-                if ($("div.PopupWielkosc div.ZdjecieGaleriaMaxWielkosc").length > 0) {
-                    $("body, html").css("overflow", "auto");
-                }
                 return false;
             }
         });

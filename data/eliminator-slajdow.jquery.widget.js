@@ -8,6 +8,7 @@
             cssPath: "",
             facebookUrl: "https://www.facebook.com/eliminator-slajdow?ref=chrome.extension",
             bugReportUrl: "https://eliminator-slajdow.sugester.pl/",
+            debug: false,
             trackingCallback: function (category, action) {
             }
         },
@@ -27,15 +28,22 @@
             customStyle: {},
             trigger: "",
             triggerStopper: "",
+            esTheme: "default",
             preIncludeCallback: function () {
+            },
+            beforeAllCallback: function () {
+            },
+            afterAllCallback: function () {
             }
         },
         pages: [
             {   trigger: "body#pagetype_photo",
+                triggerStopper: "body#pagetype_photo.simpleGallery #gazeta_gallery_popup .gs_navigation .gs_next",
                 name: "galeria #pagetype_photo (1)",
                 regressionUrls: ["http://deser.pl/deser/51,111858,15435006.html?i=1",
                     "http://wyborcza.pl/51,75248,12537285.html?i%3a0&piano_t=1",
-                    "http://www.sport.pl/pilka/56,136438,16075836,MS_2014__Thomas_Donohoe_dostal_pomnik__Czy_to_on_przywiozl.html"],
+                    "http://www.sport.pl/pilka/56,136438,16075836,MS_2014__Thomas_Donohoe_dostal_pomnik__Czy_to_on_przywiozl.html",
+                    "http://wiadomosci.gazeta.pl/wiadomosci/51,114871,16254019.html"],
                 sectionToBeEmptySelector: "#gazeta_article_miniatures",
                 sectionToBeRemovedSelector: "#gazeta_article_top .navigation, #gazeta_article .navigation, #gazeta_article_image .overlayBright",
                 pageType: "1",
@@ -50,7 +58,8 @@
                 regressionUrls: ["http://www.plotek.pl/plotek/56,78649,13096942,Kaja_Paschalska,,1.html",
                     "http://www.plotek.pl/plotek/56,79592,12829011,Jako_dzieci_byli_gwiazdami_seriali__Co_dzis_robia.html",
                     "http://wiadomosci.gazeta.pl/wiadomosci/5,114944,14025881,Turcja__Tysiace_ludzi_na_ulicach__starcia_z_policja.html?i=17",
-                    "http://lublin.gazeta.pl/lublin/56,35640,13282657,I_plug_nie_dawal_rady,,2.html"],
+                    "http://lublin.gazeta.pl/lublin/56,35640,13282657,I_plug_nie_dawal_rady,,2.html",
+                    "http://wyborcza.pl/duzy_kadr/56,97904,12530404,Najlepsze_zdjecia_tygodnia.html"],
                 sectionToBeAttached: "#gazeta_article_image img,#gazeta_article_body, div[id*='gazeta_article_image_']:not('#gazeta_article_image_overlay')",
                 pageType: "2",
                 customStyle: {".path_duzy_kadr #col_left": "width:auto",
@@ -66,7 +75,6 @@
                 sectionToBeAttached: "#gazeta_article_image,#gazeta_article_body, div[id*='gazeta_article_image_']:not('#gazeta_article_image_overlay')",
                 sectionToBeRemovedSelector: "#gazeta_article_image div.overlayBright",
                 pageType: "3",
-                regressionUrls: ["http://wiadomosci.gazeta.pl/wiadomosci/1,114875,16254019,Szef_Panstwa_Islamskiego_wzywa_do_dzihadu_podczas.html"],
                 preIncludeCallback: function () {
                     this._updateGalleryLink();
                 }
@@ -83,14 +91,14 @@
             },
             {   trigger: "div#article div#article_body",
                 name: "galeria div#article div#article_body (5)",
-                regressionUrls: ["http://wyborcza.pl/duzy_kadr/56,97904,12530404,Najlepsze_zdjecia_tygodnia.html"],
+                regressionUrls: [""],
                 articleBodySelector: "#article_body",
                 navigationNextULRSelector: "#gal_btn_next a:first",
                 sectionToBeEmptySelector: "#gal_navi_wrp", // div#article ul,
                 sectionToBeAttached: "div#container_gal",
                 navigationPageNumberSelector: "#gal_navi .paging",
-                pageType: "5"
-
+                pageType: "5",
+                esTheme: "white"
             },
             {   trigger: "div#k1 div#k1p div#gal_outer",
                 name: "galeria bez typu ('div#k1 div#k1p div#gal_outer') (6)",
@@ -386,7 +394,7 @@
                 customStyle: {'*[id="galeria-z-opisem"]': 'float:left'},
                 hasSlideNumbers: true,
                 pageType: "24",
-                regressionUrls: ["http://warszawa.naszemiasto.pl/artykul/galeria/pogrzeb-jaruzelskiego-na-powazkach-wideo-zdjecia,2290964,9379362,t,id,zid.html#galeria"],
+                regressionUrls: [""],
                 preIncludeCallback: function () {
 
                 }
@@ -403,7 +411,7 @@
                 customStyle: {},
                 hasSlideNumbers: true,
                 pageType: "25",
-                regressionUrls: ["http://warszawa.naszemiasto.pl/artykul/galeria/pogrzeb-jaruzelskiego-na-powazkach-wideo-zdjecia,2290964,9379362,t,id,zid.html#galeria"],
+                regressionUrls: [""],
                 preIncludeCallback: function () {
 
                 }
@@ -564,7 +572,7 @@
                 /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
                 sectionToBeRemovedFromAttachedSlidesSelector: "script, #ARTICLE_GALLERY_RIGHT_COLUMN_1, #ARTICLE_GALLERY_BOTTOM_1, .socialButtons",
                 /* dowolne style css w postaci mapy */
-                customStyle: {".sharebx": "float:left"},
+                customStyle: {".sharebx, .Comments": "float:left"},
                 /* naglowek slajdu */
                 headerSectionSelector: "",
                 /* $.empty() na elemencie*/
@@ -789,9 +797,360 @@
                     "http://www.snobka.pl/artykul/emily-ratajkowski-znowu-sie-rozbiera-19646/1/4#photo-gallery"]
             },
             {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
-                trigger: "",
+                trigger: "body#pagetype_photo.simpleGallery #gazeta_gallery_popup .gs_navigation .gs_next",
+                /* index */
+                pageType: "42",
+                /* nazwa galerii */
+                name: "gazeta pl nowa galeria czarna",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#gazeta_gallery_popup .gs_image_cointainer",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: ".gs_image_cointainer",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".gs_navigation .gs_next:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".gs_stats .gs_count",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".gs_navigation",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {"body": "overflow: auto", ".gs_image_cointainer img": "position:relative;max-height:inherit;min-height:inherit",
+                    "#gazeta_gallery_popup": "position:relative", "#page22": "height:0",
+                    ".headerLogo, .icon-facebook-squared": "color:white",
+                    "#gazeta_gallery_popup .gs_image_cointainer": "height:auto",
+                    "#gazeta_gallery_popup": "position:absolute"},
+                preIncludeCallback: function () {
+                },
+                beforeAllCallback: function () {
+                    $('<style type="text/css">.simpleGallery #gazeta_gallery_popup.first_slide {display: none;} \n' +
+                        '.simpleGallery #gazeta_gallery_popup.show_slider_image {display: block;}\n' +
+                        'body {overflow: visible !important}</style>').appendTo($('head'));
+                },
+                regressionUrls: ["http://wiadomosci.gazeta.pl/wiadomosci/5,139575,16388712.html?i=0"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "div.wrap div.main div.article__content #galeria div.gallery__image-big a.next",
+                /* index */
+                pageType: "43",
+                /* nazwa galerii */
+                name: "http://www.fly4free.pl/",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#galeria",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#galeria",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "div.gallery__image-big a.next",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".gallery__nav:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".gallery__nav, .gallery__image-big .next, .gallery__image-big .prev",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://www.fly4free.pl/top10-co-warto-zobaczyc-w-chinach/?pid=3404#galeria"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "#stgMain .stampFototematRow .stampStronicowanieFototematu .stampStronicowanieFototematuContent .stampStronicowanieFototematuIndex",
+                /* index */
+                pageType: "44",
+                /* nazwa galerii */
+                name: "wp.pl galeria pozioma",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#stgMain .stampFototemat",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: ".stampFototemat",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".stampStronicowanieFototematuContent a.stampStronicowanieFototematuNxt:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".stampStronicowanieFototematuIndex:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".pPaginSmall, .stampStronicowanieFototematu",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://pogoda.wp.pl/gid,16782131,kat,1035571,title,Prognoza-dlugoterminowa-kulminacja-upalnego-lata,galeria.html"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "#page_wrapper #container #main .article-wraper .article-body .post-pages a.next-page.button",
                 /* index */
                 pageType: "45",
+                /* nazwa galerii */
+                name: "gadzetomania",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: ".article-body",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: ".article-body",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".article-body .post-pages a.next-page.button:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".pages-text:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".post-pages",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://gadzetomania.pl/1547,tragedie-w-przestworzach-ataki-na-samoloty-cywilne-znacznie-wiecej-wiecej-niz-podaja-media"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "#main-wrap div#body .section-subcontent .photo-wrap a#next_link",
+                /* index */
+                pageType: "46",
+                /* nazwa galerii */
+                name: "trojmiasto.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#foto",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#foto",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".photo-wrap a#next_link",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".page_count:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: "#fotoshift, .simple-nav, #hover_nav",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://galeria.trojmiasto.pl/-452980.html?id_container=82203&pozycja=4#foto"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "body#top ul.k_controls .k_next",
+                /* index */
+                pageType: "47",
+                /* nazwa galerii */
+                name: "onet pozioma galeria",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#main .kopyto:first",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#main .kopyto:first",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "li.k_next a:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".k_index:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".k_preview, .k_index, .k_controls",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://ciekawe.onet.pl/fototematy/venus-kot-dwie-twarze,5649860,17024821,galeria-duzy.html"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "div#page div#main-content #content-region .node-article-image .navigation-links a.next",
+                /* zatrzymuje trigger*/
+                triggerStopper: "",
+                /* index */
+                pageType: "48",
+                /* nazwa galerii */
+                name: "regiomoto",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#content-region .node-article-image",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#content-region .node-article-image",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".navigation-links a.next",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".image-counter",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: "",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {"#comments": "float:left"},
+                preIncludeCallback: function () {
+                    $("img.imagecache").each(function () {
+                        $(this).attr("src", $(this).attr("data-original"))
+                    });
+
+                    if ($(this.articleSection).find(".navigation-links a.next").length === 0 && $(this.articleSection).find(".navigation-links a.last").length === 1) {
+                        this.nextPageURL = $(this.articleSection).find(".navigation-links a.last").attr("href")
+                    }
+
+                    $("div.images, .navigation-links").remove();
+                },
+                regressionUrls: ["http://regiomoto.pl/portal/porady/tuning/zdjecie-dopieszczone-wartburgi-chlopakow-z-wartburgradikalzcom"]
+            },
+            {   trigger: "div#page div#main div.slideshow-header .slideshow-paging .slideshow-next",
+                name: "sportfan.pl",
+                articleBodySelector: ".slideshow",
+                navigationNextULRSelector: ".slideshow-paging .slideshow-next:first",
+                sectionToBeEmptySelector: "",
+                sectionToBeAttached: ".slideshow:first",
+                sectionToBeRemovedSelector: ".slideshow-paging",
+                navigationPageNumberSelector: ".slideshow-current:first",
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                customStyle: {'.imageContainerEliminatorSlajdow': 'margin-top:20px'},
+                hasSlideNumbers: true,
+                pageType: "49",
+                regressionUrls: ["http://www.sportfan.pl/galeria/neymar-juz-nie-pamieta-o-bolu-zajela-sie-nim-sexy-kobieta-53539"],
+                preIncludeCallback: function () {
+
+                }
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "#main > div.article > div.gallery-booth > div.gallery-big > a.gallery-next",
+                /* zatrzymuje trigger*/
+                triggerStopper: "",
+                /* index */
+                pageType: "50",
+                /* nazwa galerii */
+                name: "sportfan plaska",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#main > div.article > div.gallery-booth",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "div.gallery-booth",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "div.gallery-big > a.ir.gallery-next",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: false,
+                navigationPageNumberSelector: "",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: "div.gallery-preview, .gallery-big .ir",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {".article .gallery-big": "width:auto"},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://www.sportfan.pl/artykul/erotyczne-euro-nagie-pilkarki-na-boisku-zdjecia-43386"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "body#Forbes #Page-Wrap .Block-Node a.Next",
+                /* zatrzymuje trigger*/
+                triggerStopper: "",
+                /* index */
+                pageType: "51",
+                /* nazwa galerii */
+                name: "forbes.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#Column-Wrap",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#Column-Wrap",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "#Page-Wrap .Block-Node a.Next",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: false,
+                navigationPageNumberSelector: "",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".navigation, .Next, .Previous, .showMini",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script, .backlink, #ARTICLE_RELATED_GALLERY_BOTTOM, .socialLine",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {".headerLogo, .icon-facebook-squared": "color:white",
+                    ".imageContainerEliminatorSlajdow": "margin-top:15px"},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://kariera.forbes.pl/8-prostych-sposobow-na-poprawe-jakosci-pracy,artykuly,179168,1,1,4.html",
+                    "http://kariera.forbes.pl/najbardziej-absurdalne-pytania-na-rozmowie-o-prace,artykuly,174074,1,1,2.html"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "div#root div#content section#articles #zdjecie.right .navigation a.next",
+                /* zatrzymuje trigger*/
+                triggerStopper: "",
+                /* index */
+                pageType: "52",
+                /* nazwa galerii */
+                name: "geekweek.pl",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#zdjecie div:last",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "figure.image, #ads-incontext-content",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: ".navigation a.next:first",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".navigation .num",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".navigation",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://www.geekweek.pl/galerie/4031/zwierzeta-w-promieniach-zachodzacego-slonca?zdjecie=1#zdjecie",
+                    "http://www.geekweek.pl/galerie/4082/jak-sobie-radzic-w-upaly",
+                    "http://www.geekweek.pl/galerie/4080/tego-nie-wiedzieliscie-o-mcdonalds"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "#galeria-warstwa > div.boxPozycja.galeriaNaw > div #material-galeria-nastepne.btnNastepny",
+                /* zatrzymuje trigger*/
+                triggerStopper: "",
+                /* index */
+                pageType: "53",
+                /* nazwa galerii */
+                name: "naszemiasto.pl w overlay",
+                /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
+                articleBodySelector: "#galeria-warstwa",
+                /* elementy ktora zostana dolaczone jako slajd*/
+                sectionToBeAttached: "#galeria-warstwa",
+                /* selektor do jednego elementu z linkiem do nastepnego slajdu*/
+                navigationNextULRSelector: "#material-galeria-nastepne",
+                /* false gdy nie ma skad wziac numeracji */
+                hasSlideNumbers: true,
+                navigationPageNumberSelector: ".galPrawaKol .tytulMaly span:first",
+                /* elementy do usuniecia z calej strony */
+                sectionToBeRemovedSelector: ".galeriaNaw",
+                /* elementy do usuniecia TYLKO z dolaczanych slajdow*/
+                sectionToBeRemovedFromAttachedSlidesSelector: "script",
+                /* $.empty() na elemencie*/
+                sectionToBeEmptySelector: "",
+                /* Theme */
+                esTheme: "white",
+                /* dowolne style css w postaci mapy */
+                customStyle: {},
+                preIncludeCallback: function () {
+                },
+                regressionUrls: ["http://warszawa.naszemiasto.pl/artykul/zdjecia/muzeum-techniki-warszawa-wystawa-zabytkowych-kamer-i,2380679,artgal,10156975,t,id,tm,zid.html",
+                    "http://warszawa.naszemiasto.pl/artykul/zdjecia/pogrzeb-jaruzelskiego-na-powazkach-wideo-zdjecia,2290964,artgal,9379796,t,id,tm,zid.html"]
+            },
+            {   /* css selektor ktory uaktywnia eliminacje slajdow na danej stronie*/
+                trigger: "",
+                /* zatrzymuje trigger*/
+                triggerStopper: "",
+                /* index */
+                pageType: "48",
                 /* nazwa galerii */
                 name: "",
                 /* ZA tym elementem bedzie dolaczony DIV ze slajdami */
@@ -809,6 +1168,8 @@
                 sectionToBeRemovedFromAttachedSlidesSelector: "script",
                 /* $.empty() na elemencie*/
                 sectionToBeEmptySelector: "",
+                /* Theme */
+                esTheme: "default",
                 /* dowolne style css w postaci mapy */
                 customStyle: {},
                 preIncludeCallback: function () {
@@ -818,9 +1179,21 @@
         ],
         spinner: $("<div>", {"class": "eliminatorSlajdowSpinner"}).append($("<i>", {class: 'icon-spin3 animate-spin'})),
         imageContainer: null,
+        _theme: function (theme) {
+            var style = "";
+            if (theme === "white") {
+                style = '.headerLogo, .eliminatorSlajdow div.imageContainerEliminatorSlajdow div.slideHeader p.headerLogo i {color:white}'
+            }
+            $('<style type="text/css">' + style + '</style>').appendTo($('head'));
+        },
         _start: function () {
+            if (this.options.debug) {
+                this._debug()
+            }
+            this.pageOptions.beforeAllCallback.call(this);
             $("head").append($("<link>", {href: this.options.cssPath, type: "text/css", rel: "stylesheet"}));
             $("body").addClass("eliminatorSlajdow");
+            this._theme(this.pageOptions.esTheme);
             this.nextPageURL = $(this.pageOptions.navigationNextULRSelector).attr("href");
             this._logger("link do nastepnej storny", this.nextPageURL, this.pageOptions.navigationNextULRSelector);
             this.pageOptions.preIncludeCallback.call(this);
@@ -841,7 +1214,7 @@
             return $("<div>", {
                 "class": "slideHeader slideHeader_" + pageNumber
             }).append($("<p>", {
-                    "class": "headerBar shadow"
+                    "class": "headerBar shadow_es"
                 }).append($("<span>", {
                         "class": "pageNumber",
                         text: pageNumberLabel
@@ -888,8 +1261,8 @@
         _appendNextSlide: function (galleryPage, url) {
             var that = this;
             this._hideSpinner();
-            var articleSection = $(galleryPage).find(this.pageOptions.sectionToBeAttached);
-            if ($(articleSection).length > 0) {
+            this.articleSection = $(galleryPage).find(this.pageOptions.sectionToBeAttached);
+            if ($(this.articleSection).length > 0) {
 
                 this.nextPageURL = $(galleryPage).find(this.pageOptions.navigationNextULRSelector).attr("href");
                 if (typeof url === "undefined" || url === this.nextPageURL || $.inArray(url, this.pageOptions.visitedSlideURLs) > -1) {
@@ -911,9 +1284,9 @@
 
                 $(this.imageContainer).append(slideHeader);
 
-                $(articleSection).find(this.pageOptions.sectionToBeEmptySelector).empty();
-                $(articleSection).find(this.pageOptions.sectionToBeRemovedSelector).remove();
-                $(articleSection).find(this.pageOptions.sectionToBeRemovedFromAttachedSlidesSelector).remove();
+                $(this.articleSection).find(this.pageOptions.sectionToBeEmptySelector).empty();
+                $(this.articleSection).find(this.pageOptions.sectionToBeRemovedSelector).remove();
+                $(this.articleSection).find(this.pageOptions.sectionToBeRemovedFromAttachedSlidesSelector).remove();
 
                 var slideWrapper = $(this.imageContainer).append($("<div>", {
                     "class": "slide_" + pageNumber + " es_slide"
@@ -927,10 +1300,10 @@
                     }));
                 }
 
-                $(slideWrapper).append(articleSection);
+                $(slideWrapper).append(this.articleSection);
 
                 for (var selector in this.pageOptions.customStyle) {
-                    var elements = $(articleSection).find(selector);
+                    var elements = $(this.articleSection).find(selector);
                     if (elements.length == 0) {
                         elements = $(selector);
                     }
@@ -963,6 +1336,7 @@
                 } else {
                     this._logger("Ostatni Slajd");
                     this._hideSpinner();
+                    this.pageOptions.afterAllCallback.call(this);
                 }
 
             } else {
@@ -1139,6 +1513,7 @@
             }
         },
         regression: function () {
+            this._debug();
             var setTimeoutFunction = function (urlToOpen, pi) {
                 console.log("url", urlToOpen);
                 var delay = 5 * 1000 * pi;
@@ -1153,8 +1528,11 @@
             var index = 0;
             var max = 5;
             for (var pi in  self.pages) {
-                for (var i in this.pages[self.pages.length - pi - 1].regressionUrls) {
-                    allRegressionUrls.push(this.pages[self.pages.length - pi - 1].regressionUrls[i]);
+                var pageConfig = this.pages[self.pages.length - pi - 1];
+                for (var i in pageConfig.regressionUrls) {
+                    var regressionUrl = pageConfig.regressionUrls[i];
+                    if (regressionUrl.length > 0)
+                        allRegressionUrls.push(regressionUrl + "###ES_DEBUG=1###-PAGETYPE=" + pageConfig.pageType);
                 }
             }
 
@@ -1177,6 +1555,13 @@
             this._create();
             this._showSpinnier();
         },
+        _debug: function () {
+            var content = "Eliminator Slajdów - Debug Console v0.0.1\n\n";
+            for (var property in this.pageOptions) {
+                content += property + "=" + JSON.stringify(this.pageOptions[property]) + "\n"
+            }
+            $("<textarea>", {id: "es_debug", val: content}).appendTo($("body"));
+        },
         _tracking: function (category, action, comment) {
             if ($.isFunction(this.options.trackingCallback)) {
                 comment = comment || window.location.host;
@@ -1185,7 +1570,11 @@
         },
         _logger: function () {
             console.log.apply(console, arguments);
+            if (this.options.debug) {
+                $("#es_debug").val($("#es_debug").val() + "\n" + JSON.stringify(arguments)).animate({
+                    scrollTop: 10000000
+                });
+            }
         }
-    })
-    ;
+    });
 })(jQuery);
