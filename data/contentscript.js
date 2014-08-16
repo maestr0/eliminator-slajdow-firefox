@@ -10,7 +10,7 @@
                     trackingCallback: function (category, action) {
                         console.log("Tracking not implemented in FF");
                     },
-                    debug: document.location.href.indexOf("ES_DEBUG=1") > -1
+                    debug: document.location.href.indexOf("es_debug=1") > -1
                 });
                 return false;
             }

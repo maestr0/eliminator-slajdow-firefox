@@ -152,6 +152,12 @@
         },
         {
             "type": "bool",
+            "name": "eliminator-slajdow.herokuapp.com",
+            "value": true,
+            "title": "Oficjalna strona ES"
+        },
+        {
+            "type": "bool",
             "name": "expressilustrowany.pl",
             "value": true,
             "title": "www.expressilustrowany.pl"
@@ -643,7 +649,7 @@
     "description": "Dodatek eliminuje slajdy w artykułach na portalach grup Agora, Onet, MojeMiasto i MediaRegionalne",
     "name": "eliminator-slajdow",
     "dependencies": ["api-utils", "addon-kit"],
-    "version": "3.1.2",
+    "version": "3.1.4",
     "lib": "lib",
     "fullName": "Eliminator Slajdów",
     "main": "main",
