@@ -6,7 +6,7 @@
                     imageBaseUrl: config.imageBaseUrl,
                     cssPath: config.cssUrl,
                     facebookUrl: "https://www.facebook.com/eliminator-slajdow?ref=ff.extension",
-                    bugReportUrl: "https://eliminator-slajdow.herokuapp.com/?ref=ff.extension",
+                    bugReportUrl: "http://eliminator-slajdow.herokuapp.com/?ref=ff.extension",
                     trackingCallback: function (category, action) {
                         console.log("Tracking not implemented in FF");
                     },
