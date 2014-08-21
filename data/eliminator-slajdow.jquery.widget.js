@@ -1,4 +1,14 @@
-(function ($) {
+/*
+*   Eliminator Slajdów - jQuery widget dla przeglądarek Chrome i Firefox
+*
+*   Autor: Paweł Raszewski
+*   Licencja: GPLv3
+*   Strona Domowa: http://eliminator-slajdow.raszewski.info
+*
+*   Wersja: 3.1.5
+* */
+
+ (function ($) {
     $.widget("info_raszewski.eliminatorSlajdow", {
         options: {
             imageBaseUrl: "",
@@ -7,7 +17,7 @@
             esLogoUrl: "es_logo.svg",
             cssPath: "",
             facebookUrl: "https://www.facebook.com/eliminator-slajdow?ref=chrome.extension",
-            bugReportUrl: "https://eliminator-slajdow.sugester.pl/",
+            bugReportUrl: "http://eliminator-slajdow.herokuapp.com/?ref=chrome.extension",
             debug: false,
             version: "SNAPSHOT",
             customPages: {},
